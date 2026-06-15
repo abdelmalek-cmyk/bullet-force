@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const faq = [
+  {
+    question: "Who made Bullet Force?",
+    answer: "Bullet Force was made by Lucas Wilde, operating under the studio name Blayze Games. Lucas Wilde is an indie developer who built and published Bullet Force largely as a solo project. The game was initially developed as a Unity WebGL browser game and later expanded to Android and iOS.",
+  },
+  {
+    question: "Is Bullet Force offline?",
+    answer: "Bullet Force requires an internet connection for multiplayer, which is the main game mode. However, it also includes a single-player campaign mode that can be played offline against AI bots. The offline campaign does not save progress the same way as multiplayer matches.",
+  },
+  {
+    question: "Is Bullet Force dead?",
+    answer: "No, Bullet Force is not dead. As of 2025, the game is still actively played by tens of thousands of players daily on CrazyGames, Poki, and the mobile apps. Blayze Games continues to maintain the game and release occasional updates.",
+  },
+  {
+    question: "Is Bullet Force just like Phantom Forces?",
+    answer: "Bullet Force and Phantom Forces are both browser-based multiplayer FPS games, but they are separate games. Bullet Force was developed by Blayze Games while Phantom Forces is a Roblox game by StyLiS Studios. They share similar gameplay concepts (team deathmatch, weapon unlocks) but are entirely different games on different platforms.",
+  },
+  {
+    question: "What happened to Bullet Force?",
+    answer: "Bullet Force is still alive and active. In its history, the game went through several major updates expanding from browser-only to mobile platforms. There was a period of reduced updates, but the game has never been shut down and continues to operate on all platforms as of 2025.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Bullet Force",
+  "description": "Free multiplayer first-person shooter developed by Blayze Games (Lucas Wilde), released in 2015.",
+  "genre": "First-Person Shooter",
+  "playMode": "MultiPlayer",
+  "gamePlatform": ["Browser", "Android", "iOS"],
+  "applicationCategory": "Game",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "developer": { "@type": "Organization", "name": "Blayze Games" },
+};
+
+const timeline = [
+  { year: '2015', event: 'Bullet Force launches as a Unity WebGL browser game. Blayze Games releases the initial version with 3 maps and basic weapon selection.' },
+  { year: '2016', event: 'iOS version released on the App Store. First major content update adds new weapons and the Conquest game mode.' },
+  { year: '2017', event: 'Android version released on Google Play. Cross-platform multiplayer connects mobile and browser players on the same servers.' },
+  { year: '2018', event: 'Major update adds the scorestreak system (UAV, Airstrike, Helicopter), customizable perks, and weapon attachments.' },
+  { year: '2019', event: 'Cosmetic system expanded with weapon skins, character cosmetics, and loot cases purchasable with Gold.' },
+  { year: '2020–2022', event: 'Ongoing balance updates, server stability improvements, and anti-cheat system updates. Community grows on Reddit and Discord.' },
+  { year: '2023–2025', event: 'Game continues active operation. Tens of thousands of daily players across browser and mobile. Blayze Games maintains server infrastructure.' },
+];
+---
+
+<BaseLayout
+  title="About Bullet Force – Developer, History & Game Info"
+  description="Learn about Bullet Force: developed by Blayze Games (Lucas Wilde), release history, game modes including single player campaign and multiplayer."
+  schema={schema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl sm:text-5xl font-black text-white mb-4">
+      About Bullet Force –<br />
+      <span class="text-bf-orange">Game Info, Developer & History</span>
+    </h1>
+    <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl">
+      Learn who made Bullet Force, the history of the game from 2015 to today, and what makes it stand out among browser FPS games.
+    </p>
+
+    <!-- Developer info -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-12">
+      <div>
+        <h2 class="text-2xl font-bold text-white mb-4">Who Made Bullet Force?</h2>
+        <div class="space-y-3 text-gray-300 text-sm leading-relaxed">
+          <p>
+            <strong class="text-white">Bullet Force was made by Lucas Wilde</strong>, an indie game developer who operates under the studio name <strong class="text-white">Blayze Games</strong>.
+            The game began as a personal project to create a high-quality multiplayer FPS playable directly in the browser — something that was technically challenging given the limitations of Unity WebGL at the time.
+          </p>
+          <p>
+            Lucas Wilde built Bullet Force largely as a solo project, handling game design, programming, asset creation, and server infrastructure. The initial browser release in 2015 quickly attracted attention for its surprisingly polished visuals and gameplay, especially compared to other browser games of the era.
+          </p>
+          <p>
+            After the browser version's success, Blayze Games expanded Bullet Force to iOS (2016) and Android (2017), connecting all three platforms on the same multiplayer servers. This cross-platform approach made Bullet Force one of the few truly cross-play FPS games available for free.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-bf-surface border border-bf-border rounded-2xl p-6">
+        <h3 class="font-semibold text-white mb-4">Bullet Force – Developer Details</h3>
+        <dl class="space-y-3 text-sm">
+          {[
+            { term: 'Developer',       def: 'Lucas Wilde' },
+            { term: 'Studio',          def: 'Blayze Games' },
+            { term: 'Engine',          def: 'Unity (WebGL + Native Mobile)' },
+            { term: 'Initial Release', def: '2015 (Browser)' },
+            { term: 'iOS Release',     def: '2016' },
+            { term: 'Android Release', def: '2017' },
+            { term: 'Genre',           def: 'Multiplayer First-Person Shooter' },
+            { term: 'Business Model',  def: 'Free to Play (cosmetic microtransactions)' },
+            { term: 'Status (2025)',    def: 'Active — servers online, regular maintenance' },
+          ].map(({ term, def }) => (
+            <div class="flex gap-4">
+              <dt class="font-semibold text-gray-400 w-32 flex-shrink-0">{term}</dt>
+              <dd class="text-gray-200">{def}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+
+    <!-- Game modes -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-5">Bullet Force Game Modes</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { mode: 'Team Deathmatch',  icon: '🎯', desc: 'Two teams compete to reach the kill limit first. Standard TDM format, 6v6 or 8v8.' },
+          { mode: 'Free For All',     icon: '💀', desc: 'Every player for themselves. First to the kill limit wins. Great for practicing aim.' },
+          { mode: 'Conquest',         icon: '🚩', desc: 'Capture and hold objective points on the map. Teams score by controlling more flags over time.' },
+          { mode: 'Gun Game',         icon: '🔫', desc: 'Everyone starts with a pistol. Each kill upgrades your weapon. First to complete all weapons wins.' },
+        ].map(({ mode, icon, desc }) => (
+          <div class="bg-bf-surface border border-bf-border rounded-xl p-4">
+            <div class="text-2xl mb-2">{icon}</div>
+            <h3 class="font-semibold text-white text-sm mb-1">{mode}</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-sm text-gray-400 mt-4">
+        <strong class="text-gray-300">Campaign (offline):</strong> Bullet Force also includes a single-player campaign with AI bots for offline practice.
+        A <strong class="text-gray-300">Zombie mode</strong> was discussed but has not been officially released.
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-5">Bullet Force Release History</h2>
+      <div class="relative pl-6 border-l border-bf-border space-y-6">
+        {timeline.map(({ year, event }) => (
+          <div class="relative">
+            <div class="absolute -left-[1.625rem] w-4 h-4 bg-bf-orange rounded-full border-2 border-bf-dark"></div>
+            <div class="text-xs font-bold text-bf-orange mb-1">{year}</div>
+            <p class="text-sm text-gray-300 leading-relaxed">{event}</p>
+          </div>
+        ))}
+      </div>
+      <a href="/updates" class="inline-flex items-center gap-1 text-bf-orange hover:underline text-sm mt-5">
+        Full patch notes & version history →
+      </a>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mb-10">
+      <h2 class="text-2xl font-bold text-white mb-6">About Bullet Force – Questions</h2>
+      <FAQAccordion items={faq} />
+    </div>
+
+    <!-- Related -->
+    <div class="flex flex-wrap gap-3">
+      <a href="/updates" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Full Update History</a>
+      <a href="/play" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Play Bullet Force Now</a>
+      <a href="/community" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Join the Community</a>
+    </div>
+  </div>
+</BaseLayout>

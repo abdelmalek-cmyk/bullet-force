@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const generalFaq = [
+  {
+    question: "What is Bullet Force?",
+    answer: "Bullet Force is a free multiplayer first-person shooter developed by Blayze Games (Lucas Wilde). Released in 2015 as a Unity WebGL browser game, it features 5 multiplayer maps, 30+ weapons, perks, scorestreaks, and multiple game modes. It's playable in any browser and as a native app on Android and iOS.",
+  },
+  {
+    question: "What is a Bullet Force campaign?",
+    answer: "Bullet Force includes a single-player campaign mode alongside multiplayer. The campaign consists of offline missions against AI bots, covering objectives across the game's maps. It's a good way to learn the controls and map layouts before jumping into competitive multiplayer.",
+  },
+  {
+    question: "What does ping mean in Bullet Force?",
+    answer: "Ping in Bullet Force is the round-trip time (measured in milliseconds) between your device and the game server. Lower ping means smoother gameplay with less delay. A ping under 80ms is excellent; 80–150ms is playable; above 150ms you'll notice lag. Green ping icon = low; yellow = medium; red = high.",
+  },
+  {
+    question: "What FPS does Bullet Force run at?",
+    answer: "Bullet Force targets 60 FPS on most modern hardware. Browser performance depends on your PC's CPU, GPU, and browser. On a capable PC with Chrome, you'll consistently hit 60 FPS. Lower-end devices may run at 30–45 FPS. The game adapts its graphics quality settings to match your hardware.",
+  },
+  {
+    question: "What is the Super Soldier in Bullet Force?",
+    answer: "Super Soldier is a rare status in Bullet Force earned by maintaining an exceptionally high kill-death ratio and performance over multiple matches. Super Soldiers appear with a special badge and are given matchmaking priority. The exact threshold isn't publicly disclosed by Blayze Games.",
+  },
+  {
+    question: "What is the Blacklist in Bullet Force?",
+    answer: "The Blacklist in Bullet Force is a list of players who have been flagged or reported for cheating, exploiting, or toxic behavior. Blacklisted players may be temporarily or permanently banned from multiplayer. You can report suspicious players using the in-game report function.",
+  },
+  {
+    question: "What is a clan tag in Bullet Force?",
+    answer: "A clan tag in Bullet Force is a short prefix (up to 4 characters) displayed before your username in-game, e.g. [TAG] PlayerName. Clan tags cost Gold to equip. A gold clan tag uses a special gold-colored display and costs additional Gold currency.",
+  },
+  {
+    question: "What is hip fire in Bullet Force?",
+    answer: "Hip fire in Bullet Force means shooting without aiming down sights (ADS). Left-click fires from the hip — faster but less accurate. Right-click (ADS) zooms into the weapon sights for greater accuracy at medium to long range. Hip fire is best for very close-range spraying with SMGs.",
+  },
+  {
+    question: "What does a case do in Bullet Force?",
+    answer: "Cases in Bullet Force are loot boxes that contain random weapon skins, character cosmetics, or Gold. You can purchase cases with Gold (premium currency) or occasionally earn them from gameplay milestones. Cases do not contain weapons — only cosmetic items.",
+  },
+  {
+    question: "What does the Shuriken do in Bullet Force?",
+    answer: "The Shuriken is a melee throwable weapon in Bullet Force. Thrown shurikens deal damage to enemies they hit. Like grenades, the Shuriken must be equipped in your loadout before a match and is thrown with the grenade key (default: G).",
+  },
+  {
+    question: "Is Bullet Force cross-platform?",
+    answer: "Yes, Bullet Force is cross-platform between browser, Android, and iOS players. All platforms connect to the same multiplayer servers. A browser player on PC can be matched against an iOS or Android player. Account data also syncs across platforms when you're logged in.",
+  },
+  {
+    question: "Is there chat in Bullet Force?",
+    answer: "Yes. Bullet Force has in-game text chat. The default key to open game chat is <strong>Enter</strong> during a match. Press Enter to type, Enter again to send. On CrazyGames specifically, chat is available via the same Enter key. Team and all-chat modes are available in some game modes.",
+  },
+  {
+    question: "How many people play Bullet Force?",
+    answer: "Bullet Force has tens of thousands of daily active players across CrazyGames, Poki, and the mobile apps. CrazyGames ranks it among their most-played FPS games. Exact player counts are not publicly released by Blayze Games.",
+  },
+  {
+    question: "How do I decrease ping in Bullet Force?",
+    answer: "To lower your ping in Bullet Force: (1) Switch to a wired ethernet connection instead of Wi-Fi. (2) Close other applications and browser tabs that use bandwidth. (3) Select a server region closer to your physical location in the server select screen. (4) Ensure no downloads or streaming are running in the background.",
+  },
+  {
+    question: "Does Bullet Force on PacoGames save progress?",
+    answer: "Yes, if you log in to your Bullet Force account on PacoGames. Progress is stored in your Bullet Force account, not locally. If you play as a guest on PacoGames, progress is lost when you close the browser. Create a free account and always log in to keep your guns, gold, and stats.",
+  },
+];
+
+const troubleshootingFaq = [
+  {
+    question: "Why won't Bullet Force load?",
+    answer: "Most loading failures are caused by one of these: (1) WebGL disabled — go to Chrome Settings > Privacy > Site Settings > Additional Content Settings > WebGL and enable it. (2) Browser extension blocking scripts — disable ad blockers or use incognito mode. (3) Outdated browser — update Chrome or Firefox. (4) Low RAM — close other tabs and applications.",
+  },
+  {
+    question: "Is Bullet Force down?",
+    answer: "Bullet Force servers are almost always online. If the game shows an error or blank screen, the problem is typically on your end, not the server. Check your internet connection, clear your cache (Ctrl+Shift+Delete), and try a different browser. If CrazyGames is down, try Poki or Miniplay instead.",
+  },
+  {
+    question: "Why is Avast saying Bullet Force is infected?",
+    answer: "This is a false positive. Bullet Force is a legitimate Unity WebGL game and is not malware. Avast and some other antivirus programs flag WebGL game files because they share code patterns with potentially unwanted programs. The game is safe — temporarily disable real-time protection while playing, or whitelist the CrazyGames domain in Avast settings.",
+  },
+  {
+    question: "Why am I getting a phishing warning on Bullet Force?",
+    answer: "Phishing warnings on Bullet Force are false positives triggered by browser security features or antivirus software that misclassifies Unity WebGL's network activity. This is not a real phishing attempt. The game communicates with Blayze Games' legitimate servers. Proceed past the warning or whitelist the domain.",
+  },
+  {
+    question: "Why won't Bullet Force load on CrazyGames?",
+    answer: "If Bullet Force won't load specifically on CrazyGames: (1) Clear browser cache and cookies for crazygames.com. (2) Disable any ad blockers — CrazyGames requires ads to be partially allowed for the game to initialize. (3) Try Firefox if Chrome fails. (4) Enable hardware acceleration in browser settings.",
+  },
+  {
+    question: "How do I fix Bullet Force kicking me out of games?",
+    answer: "Being kicked from Bullet Force games is usually caused by: (1) High ping / unstable connection — switch to wired ethernet. (2) Idle timeout — Bullet Force kicks players who are inactive for too long. (3) Server-side issues — try rejoining from the lobby. (4) Account issue — ensure you're logged in and not on a Blacklist.",
+  },
+  {
+    question: "Is Bullet Force sound not working?",
+    answer: "If Bullet Force has no sound: (1) Check your system volume and browser tab volume (click the speaker icon in the tab). (2) Ensure your browser has audio permission — some browsers block autoplay audio. Click inside the game window first before any audio plays. (3) Check in-game Settings > Audio and ensure all volumes are above 0.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    ...generalFaq.map(({ question, answer }) => ({
+      "@type": "Question",
+      "name": question,
+      "acceptedAnswer": { "@type": "Answer", "text": answer.replace(/<[^>]+>/g, '') },
+    })),
+    ...troubleshootingFaq.map(({ question, answer }) => ({
+      "@type": "Question",
+      "name": question,
+      "acceptedAnswer": { "@type": "Answer", "text": answer.replace(/<[^>]+>/g, '') },
+    })),
+  ],
+};
+---
+
+<BaseLayout
+  title="Bullet Force FAQ – All Common Questions Answered"
+  description="Answers to every common Bullet Force question: ping, clan tags, Super Soldier, cross-platform, game modes, troubleshooting, and more."
+  schema={schema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl sm:text-5xl font-black text-white mb-3">
+      Bullet Force FAQ –<br />
+      <span class="text-bf-orange">Everything You Need to Know</span>
+    </h1>
+    <p class="text-gray-300 text-lg mb-10 max-w-2xl">
+      Answers to every common <strong class="text-white">Bullet Force question</strong> — from game mechanics to troubleshooting,
+      accounts, and cross-platform play.
+    </p>
+
+    <div class="flex gap-4 mb-10 flex-wrap">
+      {[
+        { href: '#general',         label: 'General & Gameplay' },
+        { href: '#troubleshooting', label: 'Troubleshooting' },
+      ].map(({ href, label }) => (
+        <a href={href} class="bg-bf-surface border border-bf-border text-sm text-gray-200 hover:text-bf-orange hover:border-bf-orange px-4 py-2 rounded-lg transition-colors">{label}</a>
+      ))}
+    </div>
+
+    <!-- General FAQ -->
+    <section id="general" class="mb-14 scroll-mt-24">
+      <h2 class="text-2xl font-bold text-white mb-6 pb-3 border-b border-bf-border">General & Gameplay Questions</h2>
+      <FAQAccordion items={generalFaq} schema={false} />
+    </section>
+
+    <!-- Troubleshooting -->
+    <section id="troubleshooting" class="scroll-mt-24">
+      <h2 class="text-2xl font-bold text-white mb-2 pb-3 border-b border-bf-border">
+        Bullet Force Not Working? – Troubleshooting
+      </h2>
+      <p class="text-sm text-gray-400 mb-6">
+        If Bullet Force won't load or you're having connection issues, find your fix below. Start with the most common causes.
+      </p>
+      <FAQAccordion items={troubleshootingFaq} schema={false} />
+
+      <div class="mt-8 bg-bf-surface border border-bf-orange/20 rounded-xl p-5">
+        <h3 class="font-semibold text-white mb-2">Still not working?</h3>
+        <p class="text-sm text-gray-300">
+          Try playing on a different platform — if CrazyGames fails, try <a href="/play" class="text-bf-orange hover:underline">Poki or Miniplay</a>.
+          If the problem persists across all platforms, it may be a temporary server issue from Blayze Games — wait 30 minutes and try again.
+        </p>
+      </div>
+    </section>
+
+    <!-- Related links -->
+    <div class="mt-12 flex flex-wrap gap-3">
+      {[
+        { href: '/guides/controls',     label: 'Controls Guide' },
+        { href: '/guides/how-to-play',  label: 'Beginner\'s Guide' },
+        { href: '/guides/scorestreaks', label: 'Scorestreaks Guide' },
+        { href: '/guides/gold-credits', label: 'Gold & Credits Guide' },
+        { href: '/account',             label: 'Account & Login Help' },
+      ].map(({ href, label }) => (
+        <a href={href} class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5 hover:border-bf-orange transition-colors">
+          {label}
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

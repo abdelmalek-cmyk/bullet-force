@@ -1,0 +1,40 @@
+---
+export interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+interface Props { items: BreadcrumbItem[]; }
+const { items } = Astro.props;
+
+const siteUrl = 'https://bulletforce.io';
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+    ...items.map((item, i) => ({
+      "@type": "ListItem",
+      "position": i + 2,
+      "name": item.label,
+      ...(item.href ? { "item": `${siteUrl}${item.href}` } : {}),
+    })),
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+<nav aria-label="Breadcrumb" class="mb-6">
+  <ol class="flex flex-wrap items-center gap-1.5 text-sm text-gray-400">
+    <li><a href="/" class="hover:text-bf-orange transition-colors">Home</a></li>
+    {items.map((item, i) => (
+      <>
+        <li aria-hidden="true" class="text-gray-600">/</li>
+        <li>
+          {item.href && i < items.length - 1
+            ? <a href={item.href} class="hover:text-bf-orange transition-colors">{item.label}</a>
+            : <span class="text-gray-200">{item.label}</span>}
+        </li>
+      </>
+    ))}
+  </ol>
+</nav>

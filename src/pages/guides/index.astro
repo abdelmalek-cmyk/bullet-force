@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const guides = [
+  {
+    href: '/guides/how-to-play',
+    title: 'How to Play Bullet Force',
+    desc: 'Complete beginner\'s guide — game modes, controls, perks, scorestreaks, and how to win your first match.',
+    time: '10 min read',
+    icon: '🎮',
+    priority: 'Start Here',
+    priorityColor: 'text-green-400 bg-green-500/10 border-green-500/20',
+  },
+  {
+    href: '/guides/controls',
+    title: 'Controls & Keybinds Guide',
+    desc: 'All Bullet Force keyboard controls for PC. Movement, aiming, grenades, knife, fullscreen, sensitivity settings.',
+    time: '5 min read',
+    icon: '⌨️',
+    priority: 'Essential',
+    priorityColor: 'text-blue-400 bg-blue-500/10 border-blue-500/20',
+  },
+  {
+    href: '/guides/scorestreaks',
+    title: 'Scorestreaks & UAV Guide',
+    desc: 'How to activate and use every scorestreak in Bullet Force — UAV, Airstrike, Helicopter — on PC and mobile.',
+    time: '4 min read',
+    icon: '🚁',
+    priority: 'Essential',
+    priorityColor: 'text-blue-400 bg-blue-500/10 border-blue-500/20',
+  },
+  {
+    href: '/guides/gold-credits',
+    title: 'Gold & Credits Guide',
+    desc: 'How to earn Gold and Credits fast in Bullet Force. Legit farming methods, what to buy first, economy explained.',
+    time: '6 min read',
+    icon: '💰',
+    priority: 'Popular',
+    priorityColor: 'text-yellow-400 bg-yellow-500/10 border-yellow-500/20',
+  },
+  {
+    href: '/guides/controller-support',
+    title: 'Controller Support Guide',
+    desc: 'Does Bullet Force support controllers? Yes. Setup guide for Xbox, PS4/PS5, and any gamepad on PC.',
+    time: '3 min read',
+    icon: '🎮',
+    priority: 'Quick Read',
+    priorityColor: 'text-gray-400 bg-gray-500/10 border-gray-500/20',
+  },
+];
+---
+
+<BaseLayout
+  title="Bullet Force Guides – Controls, Scorestreaks, Gold & More"
+  description="All Bullet Force guides: controls, how to play, scorestreaks, gold farming, and controller support. Everything a new or experienced player needs."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl sm:text-5xl font-black text-white mb-3">
+      Bullet Force Guides
+    </h1>
+    <p class="text-gray-300 text-lg mb-10 max-w-2xl">
+      Everything you need to master Bullet Force — from your very first match to advanced strategies, scorestreak combos, and earning currency fast.
+    </p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {guides.map(({ href, title, desc, time, icon, priority, priorityColor }) => (
+        <a href={href} class="group flex flex-col bg-bf-surface border border-bf-border hover:border-bf-orange rounded-2xl p-5 transition-all duration-200">
+          <div class="flex items-start justify-between mb-4">
+            <span class="text-2xl">{icon}</span>
+            <span class={`text-xs font-semibold px-2 py-0.5 rounded border ${priorityColor}`}>{priority}</span>
+          </div>
+          <h2 class="font-bold text-white group-hover:text-bf-orange transition-colors mb-2 text-base leading-snug">{title}</h2>
+          <p class="text-sm text-gray-400 leading-relaxed flex-1">{desc}</p>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-bf-border">
+            <span class="text-xs text-gray-500">{time}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-600 group-hover:text-bf-orange transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Related content -->
+    <div class="mt-12 pt-8 border-t border-bf-border">
+      <h2 class="text-xl font-bold text-white mb-5">Also Useful</h2>
+      <div class="flex flex-wrap gap-3">
+        {[
+          { href: '/weapons', label: 'Weapons Tier List' },
+          { href: '/maps',    label: 'All Maps' },
+          { href: '/faq',     label: 'FAQ & Troubleshooting' },
+          { href: '/account', label: 'Account & Login' },
+        ].map(({ href, label }) => (
+          <a href={href} class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-4 py-2 hover:border-bf-orange transition-colors">{label}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</BaseLayout>

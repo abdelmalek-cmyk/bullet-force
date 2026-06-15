@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const faq = [
+  {
+    question: "How do I download Bullet Force on PC?",
+    answer: "Bullet Force does not have a standalone PC executable. On PC you play it in your browser — no download required. Open Chrome or Firefox, go to CrazyGames or Poki, search 'Bullet Force', and click Play. If you want a native app feel, you can install it as a PWA from your browser.",
+  },
+  {
+    question: "How do I download Bullet Force APK?",
+    answer: "The safest way to get the Bullet Force APK is from the official Google Play Store. Downloading APKs from third-party sites risks malware — always use the official app. On Google Play, search 'Bullet Force' and install the app by Blayze Games.",
+  },
+  {
+    question: "How do I install Bullet Force on a Chromebook?",
+    answer: "On a Chromebook, play Bullet Force directly in the Chrome browser — no install needed. If your Chromebook supports Android apps (most 2019+ models do), you can also install the Bullet Force Android app from the Google Play Store.",
+  },
+  {
+    question: "Is Bullet Force downloadable on Steam?",
+    answer: "No, Bullet Force is not on Steam as of 2025. Blayze Games has not released a Steam version. The game is available as a browser game and as a mobile app on Google Play and the App Store.",
+  },
+  {
+    question: "Why can't I download Bullet Force on Steam?",
+    answer: "Bullet Force has not been released on Steam. Blayze Games chose to distribute the game through browser platforms (free, instant access) and mobile app stores rather than Steam.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer.replace(/<[^>]+>/g, '') },
+  })),
+};
+---
+
+<BaseLayout
+  title="Bullet Force Download – PC, Android, iOS & Chromebook Guide"
+  description="How to download and install Bullet Force on PC, Android, iOS, and Chromebook. Step-by-step guide for all platforms including system requirements."
+  schema={schema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl sm:text-5xl font-black text-white mb-4">
+      Download Bullet Force –<br />
+      <span class="text-bf-orange">All Platforms Install Guide</span>
+    </h1>
+    <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl">
+      Looking for the <strong class="text-white">Bullet Force download</strong>? Here's how to get the game on every platform —
+      Android APK, iOS App Store, PC browser, and Chromebook — with system requirements.
+    </p>
+
+    <div class="grid lg:grid-cols-2 gap-6">
+
+      <!-- Browser / PC (no download) -->
+      <div class="bg-bf-surface border border-bf-border rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center text-xl">💻</div>
+          <div>
+            <h2 class="font-bold text-white">PC / Browser (No Download)</h2>
+            <span class="text-xs text-green-400">Recommended – Instant Play</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-300 mb-4">The browser version requires zero download. You get the full multiplayer experience instantly in Chrome, Firefox, or Edge.</p>
+        <ol class="text-sm text-gray-300 space-y-2 ml-4 list-decimal">
+          <li>Open <strong class="text-white">Chrome</strong> or Firefox on your PC</li>
+          <li>Go to <strong class="text-white">CrazyGames.com</strong> or Poki.com</li>
+          <li>Search for <strong class="text-white">Bullet Force</strong></li>
+          <li>Click <strong class="text-white">Play Now</strong> — game launches in browser</li>
+          <li>(Optional) Register a free Bullet Force account to save progress</li>
+        </ol>
+        <a href="/play" class="mt-5 inline-flex items-center gap-2 bg-bf-orange hover:bg-bf-orange-dark text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-colors">
+          Play in Browser →
+        </a>
+      </div>
+
+      <!-- Android -->
+      <div class="bg-bf-surface border border-bf-border rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-green-500/10 border border-green-500/20 rounded-xl flex items-center justify-center text-xl">🤖</div>
+          <div>
+            <h2 class="font-bold text-white">Android Download</h2>
+            <span class="text-xs text-green-400">Google Play Store</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-300 mb-4">The official Bullet Force Android app from Google Play is the safest download. Avoid third-party APK sites.</p>
+        <ol class="text-sm text-gray-300 space-y-2 ml-4 list-decimal">
+          <li>Open the <strong class="text-white">Google Play Store</strong> on your Android device</li>
+          <li>Search <strong class="text-white">"Bullet Force"</strong></li>
+          <li>Find the app by <strong class="text-white">Blayze Games</strong></li>
+          <li>Tap <strong class="text-white">Install</strong> (free)</li>
+          <li>Open the app and log in or play as guest</li>
+        </ol>
+        <div class="mt-5 text-xs text-gray-500">
+          Min requirements: Android 5.0+, 1.5 GB RAM, 250 MB storage
+        </div>
+      </div>
+
+      <!-- iOS -->
+      <div class="bg-bf-surface border border-bf-border rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-gray-500/10 border border-gray-500/20 rounded-xl flex items-center justify-center text-xl">🍎</div>
+          <div>
+            <h2 class="font-bold text-white">iOS Download (iPhone & iPad)</h2>
+            <span class="text-xs text-blue-400">App Store</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-300 mb-4">Bullet Force is available on the App Store for iPhone and iPad. The iOS app supports touch controls and Game Center integration.</p>
+        <ol class="text-sm text-gray-300 space-y-2 ml-4 list-decimal">
+          <li>Open the <strong class="text-white">App Store</strong> on your iPhone or iPad</li>
+          <li>Search <strong class="text-white">"Bullet Force Multiplayer"</strong></li>
+          <li>Find the app by <strong class="text-white">Blayze Games</strong></li>
+          <li>Tap <strong class="text-white">Get</strong> (free download)</li>
+          <li>Open and sign in or continue as guest</li>
+        </ol>
+        <div class="mt-5 text-xs text-gray-500">
+          Requires iOS 12.0 or later. Compatible with iPhone, iPad, iPod touch.
+        </div>
+      </div>
+
+      <!-- Chromebook -->
+      <div class="bg-bf-surface border border-bf-border rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-yellow-500/10 border border-yellow-500/20 rounded-xl flex items-center justify-center text-xl">📓</div>
+          <div>
+            <h2 class="font-bold text-white">Chromebook</h2>
+            <span class="text-xs text-yellow-400">Browser + Android App</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-300 mb-4">Chromebooks support Bullet Force in two ways: browser play (no download) or the Android app if your Chromebook supports the Play Store.</p>
+        <div class="space-y-3 text-sm text-gray-300">
+          <div>
+            <strong class="text-white">Method 1 – Browser (All Chromebooks):</strong>
+            <p>Open Chrome → go to CrazyGames → search Bullet Force → play instantly. No download, works on all models.</p>
+          </div>
+          <div>
+            <strong class="text-white">Method 2 – Android App (2019+ Chromebooks):</strong>
+            <p>Open Google Play Store → search Bullet Force → install. Requires a Chromebook with Android app support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- System Requirements -->
+    <div class="mt-10 bg-bf-surface border border-bf-border rounded-2xl p-6">
+      <h2 class="text-xl font-bold text-white mb-4">Bullet Force System Requirements</h2>
+      <div class="grid sm:grid-cols-3 gap-6 text-sm">
+        <div>
+          <h3 class="font-semibold text-gray-400 uppercase text-xs tracking-wider mb-3">Browser (PC)</h3>
+          <ul class="space-y-2 text-gray-300">
+            <li><span class="text-gray-500">Browser:</span> Chrome 90+ / Firefox 88+</li>
+            <li><span class="text-gray-500">OS:</span> Windows 7+, macOS 10.13+, Chrome OS</li>
+            <li><span class="text-gray-500">RAM:</span> 4 GB minimum (8 GB recommended)</li>
+            <li><span class="text-gray-500">GPU:</span> WebGL 2.0 support required</li>
+            <li><span class="text-gray-500">Internet:</span> 2 Mbps+ for stable multiplayer</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-400 uppercase text-xs tracking-wider mb-3">Android</h3>
+          <ul class="space-y-2 text-gray-300">
+            <li><span class="text-gray-500">OS:</span> Android 5.0 (Lollipop) or higher</li>
+            <li><span class="text-gray-500">RAM:</span> 1.5 GB minimum (2 GB+ recommended)</li>
+            <li><span class="text-gray-500">Storage:</span> ~250 MB</li>
+            <li><span class="text-gray-500">GPU:</span> OpenGL ES 3.0</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-400 uppercase text-xs tracking-wider mb-3">iOS</h3>
+          <ul class="space-y-2 text-gray-300">
+            <li><span class="text-gray-500">OS:</span> iOS 12.0 or later</li>
+            <li><span class="text-gray-500">Devices:</span> iPhone 6s+, iPad Air 2+</li>
+            <li><span class="text-gray-500">Storage:</span> ~300 MB</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mt-12">
+      <h2 class="text-2xl font-bold text-white mb-6">Download FAQ</h2>
+      <FAQAccordion items={faq} schema={false} />
+    </div>
+
+    <!-- Related links -->
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a href="/mobile" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Mobile Guide (Android & iOS)</a>
+      <a href="/play" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Play in Browser Instead</a>
+      <a href="/guides/controls" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">PC Controls Guide</a>
+    </div>
+  </div>
+</BaseLayout>

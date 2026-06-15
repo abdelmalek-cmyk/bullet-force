@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const faq = [
+  {
+    question: "How do I change my name in Bullet Force?",
+    answer: "To change your name in Bullet Force: open the game, go to the main lobby, and click your username in the top area. A profile panel opens where you can edit your display name. Note: Changing your name requires a registered Bullet Force account — guests cannot set a custom name.",
+  },
+  {
+    question: "How do I register a Bullet Force account?",
+    answer: "In the Bullet Force main lobby (browser or mobile), click the Guest/Login button in the top corner. Select 'Register' and enter your desired username, email address, and password. Verify your email if prompted, then log in. Registration is free and takes under 2 minutes.",
+  },
+  {
+    question: "What does registering for Bullet Force do?",
+    answer: "Registering gives you: (1) Persistent stats — your kills, wins, and XP save permanently. (2) Cross-platform progress — your account syncs across browser, Android, and iOS. (3) Custom username — guests get a random name. (4) Gold and credits saving — all earned currency is saved. (5) Clan tag access — requires a registered account.",
+  },
+  {
+    question: "How do I recover my Bullet Force account?",
+    answer: "If you've lost access to your Bullet Force account, use the 'Forgot Password' link on the login screen to reset your password via email. If you no longer have access to the email, contact Blayze Games support through their official channels (check the About section for links).",
+  },
+  {
+    question: "Does Bullet Force on PacoGames save my progress?",
+    answer: "Yes, but only if you log in to your Bullet Force account while playing on PacoGames. Progress is tied to your Bullet Force account, not the platform. Guest sessions on PacoGames do not save — always log in to preserve your weapons, gold, and stats.",
+  },
+  {
+    question: "How do I add parentheses to my Bullet Force username?",
+    answer: "To add special characters like parentheses [ ] ( ) to your Bullet Force username, type them when setting your display name in the profile menu. Not all special characters are supported — if a character is rejected, try brackets or standard ASCII symbols.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer },
+  })),
+};
+---
+
+<BaseLayout
+  title="Bullet Force Account – Login, Register & Manage Your Profile"
+  description="How to create, login, and manage your Bullet Force account. Password reset, name changes, saving progress, and account recovery help."
+  schema={schema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl sm:text-5xl font-black text-white mb-4">
+      Bullet Force Account –<br />
+      <span class="text-bf-orange">Login, Register & Profile Guide</span>
+    </h1>
+    <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl">
+      Everything you need to know about your <strong class="text-white">Bullet Force account</strong> — how to register, log in, change your name, reset your password, and save your progress across platforms.
+    </p>
+
+    <!-- Guest vs Registered -->
+    <div class="grid lg:grid-cols-2 gap-6 mb-12">
+      <div class="bg-bf-surface border border-red-500/20 rounded-2xl p-6">
+        <h2 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+          <span class="text-red-400">👤</span> Guest Account
+        </h2>
+        <p class="text-sm text-gray-300 mb-4">Playing as a guest lets you jump in immediately but comes with major limitations:</p>
+        <ul class="space-y-2 text-sm">
+          {[
+            { text: 'Random, generic username (cannot customize)', ok: false },
+            { text: 'Progress lost when browser tab is closed', ok: false },
+            { text: 'No cross-platform sync', ok: false },
+            { text: 'Cannot equip clan tags', ok: false },
+            { text: 'Gold and credits reset on every session', ok: false },
+            { text: 'Can still play full multiplayer matches', ok: true },
+          ].map(({ text, ok }) => (
+            <li class="flex items-start gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class={`w-4 h-4 flex-shrink-0 mt-0.5 ${ok ? 'text-green-400' : 'text-red-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {ok
+                  ? <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  : <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>}
+              </svg>
+              <span class={`text-xs ${ok ? 'text-gray-300' : 'text-gray-400'}`}>{text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="bg-bf-surface border border-green-500/20 rounded-2xl p-6">
+        <h2 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+          <span class="text-green-400">✅</span> Registered Account
+        </h2>
+        <p class="text-sm text-gray-300 mb-4">Registering is free and takes 2 minutes. You unlock full account features:</p>
+        <ul class="space-y-2 text-sm">
+          {[
+            'Custom username + display name',
+            'Progress saves permanently (kills, XP, rank)',
+            'Weapons and loadouts saved across sessions',
+            'Gold and credits never reset',
+            'Cross-platform sync (browser + Android + iOS)',
+            'Clan tag support',
+            'Access to account recovery if locked out',
+          ].map(text => (
+            <li class="flex items-start gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-xs text-gray-300">{text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- How to Register -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-5">How to Register a Bullet Force Account</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { step: 1, title: 'Open Bullet Force',       desc: 'Launch the game in your browser on CrazyGames, Poki, or any platform. Or open the mobile app.' },
+          { step: 2, title: 'Click Login / Register',  desc: 'In the main lobby, click the user icon or "Guest" label in the top corner to open the login panel.' },
+          { step: 3, title: 'Select Register',         desc: 'Choose "Register" (not Login). Enter a username, email address, and password for your new account.' },
+          { step: 4, title: 'Verify & Log In',         desc: 'Check your email for a verification link if required. Click it, return to the game, and log in with your credentials.' },
+        ].map(({ step, title, desc }) => (
+          <div class="bg-bf-surface border border-bf-border rounded-xl p-4">
+            <div class="w-8 h-8 bg-bf-orange/10 border border-bf-orange/20 rounded-full flex items-center justify-center text-bf-orange font-bold text-sm mb-3">{step}</div>
+            <h3 class="font-semibold text-white text-sm mb-1">{title}</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mb-10">
+      <h2 class="text-2xl font-bold text-white mb-6">Bullet Force Account – FAQ</h2>
+      <FAQAccordion items={faq} schema={false} />
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+      <a href="/play" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Play Now</a>
+      <a href="/guides/gold-credits" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Gold & Credits Guide</a>
+      <a href="/faq" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Full FAQ</a>
+    </div>
+  </div>
+</BaseLayout>

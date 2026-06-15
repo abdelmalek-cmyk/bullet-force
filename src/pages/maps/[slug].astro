@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { maps } from '../../data/maps';
+
+export function getStaticPaths() {
+  return maps.map(m => ({ params: { slug: m.slug }, props: { map: m } }));
+}
+
+const { map } = Astro.props;
+
+const others = maps.filter(m => m.slug !== map.slug);
+const sizeLabel = { Small: '🟢 Small', Medium: '🟡 Medium', Large: '🔴 Large' } as const;
+---
+
+<BaseLayout
+  title={`${map.name} Map – Bullet Force Layout, Callouts & Strategy`}
+  description={`Bullet Force ${map.name} map guide: size ${map.size}, best mode ${map.bestMode}. Layout, callouts, best weapons, and strategies for every playstyle.`}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <Breadcrumb items={[{ label: 'Maps', href: '/maps' }, { label: map.name }]} />
+
+    <div class="grid lg:grid-cols-3 gap-8">
+      <!-- Main content -->
+      <div class="lg:col-span-2">
+        <h1 class="text-4xl font-black text-white mb-2">{map.name}</h1>
+        <div class="flex flex-wrap gap-3 mb-6">
+          <span class="text-sm text-gray-400">{sizeLabel[map.size]} Map</span>
+          <span class="text-gray-600">·</span>
+          <span class="text-sm text-gray-400">Best: {map.bestMode}</span>
+        </div>
+
+        <!-- Map image placeholder -->
+        <div class="aspect-video bg-gradient-to-br from-bf-surface to-bf-darker border border-bf-border rounded-2xl flex items-center justify-center mb-6">
+          <div class="text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-gray-700 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+            </svg>
+            <p class="text-sm text-gray-600">{map.name} – Map layout</p>
+          </div>
+        </div>
+
+        <p class="text-gray-300 leading-relaxed text-base mb-8">{map.description}</p>
+
+        <!-- Callouts -->
+        <div class="mb-8">
+          <h2 class="text-xl font-bold text-white mb-4">Map Callouts – {map.name}</h2>
+          <div class="flex flex-wrap gap-2">
+            {map.callouts.map(c => (
+              <span class="text-sm bg-bf-surface border border-bf-border rounded-lg px-3 py-1.5 text-gray-300">{c}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Strategy Tips -->
+        <div class="mb-8">
+          <h2 class="text-xl font-bold text-white mb-4">{map.name} Strategy Tips</h2>
+          <ul class="space-y-3">
+            {map.tips.map(tip => (
+              <li class="flex items-start gap-3 bg-bf-surface border border-bf-border rounded-xl p-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-bf-orange flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-sm text-gray-300 leading-relaxed">{tip}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Best weapons for this map -->
+        <div>
+          <h2 class="text-xl font-bold text-white mb-4">Best Weapons on {map.name}</h2>
+          <div class="grid sm:grid-cols-3 gap-3">
+            {map.bestWeapons.map(w => (
+              <div class="bg-bf-surface border border-bf-border rounded-xl p-3 text-center">
+                <div class="font-semibold text-white text-sm">{w}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-5">
+        <!-- Map info card -->
+        <div class="bg-bf-surface border border-bf-border rounded-xl p-5">
+          <h2 class="font-semibold text-white mb-3 text-sm">Map Overview</h2>
+          <dl class="space-y-2.5 text-sm">
+            <div class="flex justify-between">
+              <dt class="text-gray-400">Map Size</dt>
+              <dd class="text-white">{map.size}</dd>
+            </div>
+            <div class="flex justify-between">
+              <dt class="text-gray-400">Best Mode</dt>
+              <dd class="text-white text-right">{map.bestMode}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Other maps -->
+        <div class="bg-bf-surface border border-bf-border rounded-xl p-5">
+          <h2 class="font-semibold text-white mb-3 text-sm">Other Maps</h2>
+          <ul class="space-y-2">
+            {others.map(m => (
+              <li>
+                <a href={`/maps/${m.slug}`} class="flex items-center justify-between text-sm text-gray-300 hover:text-bf-orange transition-colors py-1">
+                  <span>{m.name}</span>
+                  <span class="text-xs text-gray-500">{m.size}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="/maps" class="mt-3 block text-xs text-bf-orange hover:underline">All maps →</a>
+        </div>
+
+        <!-- Related guides -->
+        <div class="bg-bf-surface border border-bf-border rounded-xl p-5">
+          <h2 class="font-semibold text-white mb-3 text-sm">Related Guides</h2>
+          <div class="space-y-2">
+            <a href="/weapons" class="block text-xs text-gray-400 hover:text-bf-orange transition-colors">Weapons Tier List</a>
+            <a href="/guides/scorestreaks" class="block text-xs text-gray-400 hover:text-bf-orange transition-colors">Scorestreaks Guide</a>
+            <a href="/guides/how-to-play" class="block text-xs text-gray-400 hover:text-bf-orange transition-colors">How to Play</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

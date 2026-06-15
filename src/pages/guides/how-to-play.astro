@@ -1,0 +1,149 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+const toc = [
+  { id: 'what-is',      label: 'What Is Bullet Force?' },
+  { id: 'start',        label: 'How to Start' },
+  { id: 'game-modes',   label: 'Game Modes' },
+  { id: 'controls',     label: 'Basic Controls' },
+  { id: 'perks',        label: 'Perks Explained' },
+  { id: 'first-match',  label: 'First Match Tips' },
+  { id: 'with-friends', label: 'Play with Friends' },
+  { id: 'rank-up',      label: 'How to Rank Up Fast' },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Play Bullet Force",
+  "step": [
+    { "@type": "HowToStep", "name": "Open Bullet Force", "text": "Go to CrazyGames or Poki and search for Bullet Force, or open the mobile app. No download required for browser play." },
+    { "@type": "HowToStep", "name": "Register or continue as guest", "text": "Create a free account to save progress, or click Guest to play immediately. Guests lose progress when they close the browser." },
+    { "@type": "HowToStep", "name": "Select Multiplayer", "text": "Click Multiplayer from the main lobby to enter public matchmaking. You'll be placed in a match within 30 seconds." },
+    { "@type": "HowToStep", "name": "Choose your loadout", "text": "Before the match starts, select your weapon loadout (primary weapon, secondary, perks, scorestreaks). New players start with basic weapons." },
+    { "@type": "HowToStep", "name": "Play the match", "text": "Use WASD to move, right-click to aim, left-click to shoot. Follow your team and capture objectives based on the game mode." },
+  ],
+};
+---
+
+<GuideLayout
+  title="How to Play Bullet Force – Complete Beginner's Guide (2025)"
+  description="New to Bullet Force? This beginner's guide covers game modes, controls, tips, perks, scorestreaks, and how to win your first match."
+  schema={schema}
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'How to Play' }]}
+  toc={toc}
+>
+  <h1>How to Play Bullet Force – Complete Beginner's Guide</h1>
+
+  <p>
+    New to <strong>Bullet Force</strong>? This guide covers everything: how to start, all game modes, basic controls, the perk system, scorestreak setup, and tips to win your first few matches.
+  </p>
+
+  <h2 id="what-is">What Is Bullet Force?</h2>
+  <p>
+    Bullet Force is a free multiplayer first-person shooter developed by <strong>Blayze Games</strong>. It plays like a classic call-of-duty style FPS — two teams battle across 5 maps with customizable weapon loadouts, perks, and scorestreaks.
+    The game runs in your browser on PC and Chromebook (no download), and also as a native app on Android and iOS.
+  </p>
+
+  <h2 id="start">How to Start Playing Bullet Force</h2>
+  <ol>
+    <li><strong>Open the game</strong> — go to CrazyGames, Poki, or the <a href="/play">play page</a>. No download or install required on PC.</li>
+    <li><strong>Register or Guest</strong> — click "Register" to create a free account (recommended — saves your progress) or "Guest" to play immediately. See the <a href="/account">Account Guide</a>.</li>
+    <li><strong>Click Multiplayer</strong> — from the main lobby, click Multiplayer to enter public matchmaking.</li>
+    <li><strong>Select your loadout</strong> — choose a primary weapon, secondary, perk, and scorestreak before the match starts. Beginners: pick the M4A1 if available.</li>
+    <li><strong>Play</strong> — WASD to move, right-click to aim, left-click to shoot. Follow your team and earn kills.</li>
+  </ol>
+
+  <h2 id="game-modes">Bullet Force Game Modes Explained</h2>
+
+  <h3>Team Deathmatch (TDM)</h3>
+  <p>Two teams (usually 6v6) compete to reach the kill limit first. Standard FPS format. The team that reaches the target score first wins. <strong>Best mode for beginners</strong> — focus on getting kills and staying alive.</p>
+
+  <h3>Free For All (FFA)</h3>
+  <p>Every player fights for themselves. First player to the kill limit wins. Good for practicing aim without team coordination pressure.</p>
+
+  <h3>Conquest</h3>
+  <p>Two teams capture and hold flag objectives on the map. Score increases when your team controls more flags. <strong>More strategic</strong> — you need to push objectives, not just kill-farm.</p>
+
+  <h3>Gun Game</h3>
+  <p>All players start with the same weapon (usually a pistol). Each kill upgrades you to the next weapon in the progression. The first player to get a kill with the final weapon wins. Great for weapon variety practice.</p>
+
+  <h3>Campaign (Offline)</h3>
+  <p>Single-player missions against AI bots. Good for learning map layouts and controls before jumping into competitive multiplayer.</p>
+
+  <h2 id="controls">Basic Controls (PC)</h2>
+  <p>Here are the essential controls to know before your first match:</p>
+  <table>
+    <thead><tr><th>Action</th><th>Key</th></tr></thead>
+    <tbody>
+      <tr><td>Move</td><td><code>W A S D</code></td></tr>
+      <tr><td>Sprint</td><td><code>Shift</code> (hold)</td></tr>
+      <tr><td>Jump</td><td><code>Space</code></td></tr>
+      <tr><td>Crouch</td><td><code>Ctrl</code></td></tr>
+      <tr><td>Shoot (Hip Fire)</td><td><code>Left Click</code></td></tr>
+      <tr><td>Aim Down Sights</td><td><code>Right Click</code> (hold)</td></tr>
+      <tr><td>Reload</td><td><code>R</code></td></tr>
+      <tr><td>Knife / Melee</td><td><code>V</code></td></tr>
+      <tr><td>Throw Grenade</td><td><code>G</code></td></tr>
+      <tr><td>Switch Weapons</td><td><code>1</code> / <code>2</code> / <code>Q</code></td></tr>
+    </tbody>
+  </table>
+  <p>See the full <a href="/guides/controls">Controls & Keybinds Guide</a> for every key and rebinding instructions.</p>
+
+  <h2 id="perks">Bullet Force Perks Explained</h2>
+  <p>Perks are passive abilities that modify your character's performance. You equip one perk per loadout slot before a match.</p>
+
+  <table>
+    <thead><tr><th>Perk</th><th>Effect</th><th>Best For</th></tr></thead>
+    <tbody>
+      <tr><td>Lightweight</td><td>Increases movement speed</td><td>Aggressive flankers, SMG users</td></tr>
+      <tr><td>Flak Jacket</td><td>Reduces explosive damage taken</td><td>Grenade-heavy maps, objective modes</td></tr>
+      <tr><td>Ghost</td><td>Hidden from enemy UAV</td><td>Stealth players, flankers</td></tr>
+      <tr><td>Scavenger</td><td>Refill ammo from dead enemies</td><td>Long matches, high kill-rate players</td></tr>
+      <tr><td>Hardline</td><td>Scorestreaks require 1 fewer kill</td><td>Players who want more frequent scorestreaks</td></tr>
+      <tr><td>Dead Silence</td><td>Quieter footsteps</td><td>Stealth, map awareness players</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="first-match">First Match Tips for Beginners</h2>
+  <ul>
+    <li><strong>Stay with teammates</strong> — lone wolves get picked off fast. Follow the map and stay near 1–2 allies at all times.</li>
+    <li><strong>Use cover constantly</strong> — never stand in open areas. Move from cover to cover; pop out to shoot and return to safety.</li>
+    <li><strong>ADS at medium range</strong> — right-click to aim before firing beyond 10 meters. Hip fire only at very close range.</li>
+    <li><strong>Pick up weapons</strong> — press F to pick up weapons from eliminated enemies. Great way to access guns you haven't unlocked.</li>
+    <li><strong>Start with the M4A1</strong> — once you've saved 4,000 credits, the M4A1 assault rifle is the best beginner weapon in the game.</li>
+    <li><strong>Watch your minimap</strong> — red dots show enemy positions (when UAV is active). Rotate before enemies reach you.</li>
+    <li><strong>Don't chase kills into danger</strong> — dying cancels your killstreak progress. Living longer is better than getting one more kill.</li>
+  </ul>
+
+  <h2 id="with-friends">How to Play Bullet Force with Friends</h2>
+  <p>
+    Bullet Force uses a <strong>Custom Room</strong> system to play with specific people:
+  </p>
+  <ol>
+    <li>One player clicks <strong>Multiplayer → Custom Room → Create</strong> and sets a room name + password.</li>
+    <li>Share the room name and password with your friends.</li>
+    <li>Friends click <strong>Join Room</strong>, enter the room name and password to join.</li>
+    <li>The room host can set team assignments and fill empty slots with public players or bots.</li>
+  </ol>
+
+  <h2 id="rank-up">How Do I Rank Up Fast in Bullet Force?</h2>
+  <p>Ranking up in Bullet Force is based on XP earned per match. To rank up faster:</p>
+  <ul>
+    <li><strong>Play TDM</strong> — Team Deathmatch gives the most XP per hour for active kill-focused players.</li>
+    <li><strong>Use XP boosts</strong> if available in the shop during events.</li>
+    <li><strong>Aim for high kill games</strong> — XP is awarded primarily per kill, plus match completion bonuses.</li>
+    <li><strong>Play Conquest for objective XP</strong> — capturing flags gives bonus XP on top of kill XP.</li>
+    <li><strong>Get scorestreaks</strong> — UAV assists and helicopter kills add XP on top of direct kills.</li>
+  </ul>
+
+  <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid #2a2a38;">
+    <p style="font-size:0.875rem; color:#9ca3af; margin-bottom:0.75rem;">Related guides:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+      <a href="/guides/controls" style="font-size:0.8125rem; color:#f97316; border:1px solid #2a2a38; border-radius:0.5rem; padding:0.375rem 0.75rem;">Controls Guide</a>
+      <a href="/guides/scorestreaks" style="font-size:0.8125rem; color:#f97316; border:1px solid #2a2a38; border-radius:0.5rem; padding:0.375rem 0.75rem;">Scorestreaks Guide</a>
+      <a href="/guides/gold-credits" style="font-size:0.8125rem; color:#f97316; border:1px solid #2a2a38; border-radius:0.5rem; padding:0.375rem 0.75rem;">Gold & Credits Guide</a>
+      <a href="/weapons" style="font-size:0.8125rem; color:#f97316; border:1px solid #2a2a38; border-radius:0.5rem; padding:0.375rem 0.75rem;">Weapons Tier List</a>
+    </div>
+  </div>
+</GuideLayout>

@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const faq = [
+  {
+    question: "What are the best free browser FPS games?",
+    answer: "The best free browser FPS games in 2025 are: Bullet Force (Unity WebGL, realistic FPS), Krunker.io (fast-paced, stylized), Warmerise (sci-fi FPS), Shell Shockers (egg-themed), and Phantom Forces (Roblox-based, high player count). All are free and require no download.",
+  },
+  {
+    question: "Is there a Bullet Force 2?",
+    answer: "No, there is no Bullet Force 2 as of 2025. Blayze Games has not announced a sequel. The original Bullet Force continues to receive updates and is the only official game in the series.",
+  },
+  {
+    question: "What is Bullet Force similar to?",
+    answer: "Bullet Force is most similar to: Call of Duty (realistic FPS mechanics, scorestreaks, weapon loadouts), Phantom Forces on Roblox (similar game structure but different visuals), and Krunker.io (browser-based competitive FPS, though much more stylized).",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer },
+  })),
+};
+
+const games = [
+  {
+    name: 'Krunker.io',
+    type: 'Browser FPS',
+    free: true,
+    similar: '★★★★★',
+    desc: 'Fast-paced, stylized browser FPS with classes, weapon unlocks, and massive playerbase. The most-played browser FPS game overall. More arcade-like than Bullet Force but equally competitive.',
+    pros: ['Huge active community', 'Very smooth browser performance', 'Regular updates'],
+    cons: ['Stylized/cartoon visuals (not realistic)', 'Very fast TTK'],
+  },
+  {
+    name: 'Warmerise',
+    type: 'Browser FPS',
+    free: true,
+    similar: '★★★★☆',
+    desc: 'Sci-fi themed browser FPS with jetpacks, futuristic weapons, and team-based combat. Plays on Unity WebGL like Bullet Force. Good alternative for players who want a different visual theme.',
+    pros: ['Similar Unity WebGL tech stack', 'Sci-fi theme unique from BF', 'Team-based combat'],
+    cons: ['Smaller player count than Bullet Force', 'Less weapon variety'],
+  },
+  {
+    name: 'Phantom Forces (Roblox)',
+    type: 'Roblox FPS',
+    free: true,
+    similar: '★★★★☆',
+    desc: 'The most popular FPS on Roblox, with realistic gun mechanics, large weapon roster, and active ranked community. Very similar gameplay loop to Bullet Force but requires a Roblox account.',
+    pros: ['Massive player base', 'Deep weapon customization', 'Realistic ballistics'],
+    cons: ['Requires Roblox account and launcher', 'Roblox platform may be age-restricted on some networks'],
+  },
+  {
+    name: 'Shell Shockers',
+    type: 'Browser FPS',
+    free: true,
+    similar: '★★★☆☆',
+    desc: 'Egg-themed browser FPS with simple but highly competitive gameplay. Very different visually but scratches the same browser FPS itch when Bullet Force is blocked or unavailable.',
+    pros: ['Extremely lightweight — works on any device', 'Fast matches', 'Unblocked on most school networks'],
+    cons: ['Egg-themed (less serious)', 'Limited weapon variety'],
+  },
+  {
+    name: 'War Brokers',
+    type: 'Browser FPS',
+    free: true,
+    similar: '★★★★☆',
+    desc: 'Open-world browser FPS with vehicles, helicopters, and large maps. More tactical than Bullet Force with a battle-royale-like mode alongside standard TDM.',
+    pros: ['Vehicles add unique gameplay', 'Large maps with multiple objectives', 'Battle Royale mode'],
+    cons: ['More complex learning curve', 'Smaller community'],
+  },
+  {
+    name: 'Pixel Warfare 5',
+    type: 'Browser FPS',
+    free: true,
+    similar: '★★★☆☆',
+    desc: 'Minecraft-styled browser FPS with team deathmatch modes. Very easy to access unblocked and runs on almost any hardware. Good fallback if Bullet Force is unavailable.',
+    pros: ['Works on very low-end hardware', 'Easy to access unblocked', 'Multiple game modes'],
+    cons: ['Dated pixel visuals', 'Smaller active community'],
+  },
+];
+---
+
+<BaseLayout
+  title="Games Like Bullet Force – Best Free FPS Alternatives (2025)"
+  description="Looking for games like Bullet Force? Best free browser FPS alternatives including Krunker.io, Warmerise, Phantom Forces, and more multiplayer shooters."
+  schema={schema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl sm:text-5xl font-black text-white mb-4">
+      Games Like Bullet Force –<br />
+      <span class="text-bf-orange">Top Free FPS Alternatives</span>
+    </h1>
+    <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl">
+      Looking for <strong class="text-white">games like Bullet Force</strong>? Whether Bullet Force is down, blocked, or you just want to try something new — here are the best free browser FPS alternatives ranked by similarity.
+    </p>
+
+    <div class="grid lg:grid-cols-2 gap-5 mb-12">
+      {games.map(({ name, type, free, similar, desc, pros, cons }) => (
+        <div class="bg-bf-surface border border-bf-border rounded-2xl p-5">
+          <div class="flex items-start justify-between mb-3">
+            <div>
+              <h2 class="font-bold text-white">{name}</h2>
+              <div class="flex items-center gap-2 mt-0.5">
+                <span class="text-xs text-gray-400">{type}</span>
+                {free && <span class="text-xs text-green-400 bg-green-500/10 border border-green-500/20 px-1.5 py-0.5 rounded">Free</span>}
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-gray-400">Similarity</div>
+              <div class="text-yellow-400 text-sm">{similar}</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 mb-4 leading-relaxed">{desc}</p>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <div class="text-xs font-semibold text-green-400 mb-1">Pros</div>
+              <ul class="space-y-1">
+                {pros.map(p => <li class="text-xs text-gray-400">+ {p}</li>)}
+              </ul>
+            </div>
+            <div>
+              <div class="text-xs font-semibold text-red-400 mb-1">Cons</div>
+              <ul class="space-y-1">
+                {cons.map(c => <li class="text-xs text-gray-400">- {c}</li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mb-10">
+      <h2 class="text-2xl font-bold text-white mb-6">Similar Games – FAQ</h2>
+      <FAQAccordion items={faq} schema={false} />
+    </div>
+
+    <div class="bg-bf-surface border border-bf-orange/20 rounded-xl p-5 mb-8">
+      <h3 class="font-semibold text-white mb-2">Still prefer Bullet Force?</h3>
+      <p class="text-sm text-gray-300 mb-3">
+        If you're looking for alternatives because Bullet Force is blocked at school, try the <a href="/unblocked" class="text-bf-orange hover:underline">Unblocked version</a> first — it often solves access issues without needing a different game.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+      <a href="/play" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Play Bullet Force Now</a>
+      <a href="/unblocked" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Bullet Force Unblocked</a>
+      <a href="/community" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Community & Discord</a>
+    </div>
+  </div>
+</BaseLayout>

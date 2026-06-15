@@ -1,0 +1,138 @@
+export interface Weapon {
+  name: string;
+  slug: string;
+  category: 'Assault Rifle' | 'SMG' | 'Sniper' | 'Shotgun' | 'Pistol' | 'LMG';
+  damage: number;
+  fireRate: number;
+  range: string;
+  tier: 'S' | 'A' | 'B' | 'C';
+  unlockCost: string;
+  description: string;
+  bestFor: string;
+  attachments: string[];
+  pros: string[];
+  cons: string[];
+}
+
+export const weapons: Weapon[] = [
+  {
+    name: 'M4A1',
+    slug: 'm4a1',
+    category: 'Assault Rifle',
+    damage: 38,
+    fireRate: 75,
+    range: 'Medium–Long',
+    tier: 'S',
+    unlockCost: '4,000 Credits',
+    description: 'The M4A1 is the best all-round assault rifle in Bullet Force. Balanced damage, high accuracy, and low recoil make it the top pick for every skill level. If you only unlock one gun, unlock the M4A1.',
+    bestFor: 'All-round combat, medium-to-long range engagements',
+    attachments: ['Red Dot Sight', 'Suppressor', 'Foregrip', 'Extended Mag'],
+    pros: ['Extremely balanced stats', 'Low recoil', 'Effective at all ranges', 'Works with any perk loadout'],
+    cons: ['Needs 4,000 credits to unlock', 'Outperformed at very close range by SMGs'],
+  },
+  {
+    name: 'AS VAL',
+    slug: 'as-val',
+    category: 'Assault Rifle',
+    damage: 45,
+    fireRate: 70,
+    range: 'Short–Medium',
+    tier: 'S',
+    unlockCost: '9,500 Credits',
+    description: 'The AS VAL is a high-damage suppressed assault rifle. Its built-in suppressor keeps you off enemy radar while dealing serious damage. Best used in medium-range fights where its subsonic rounds shine.',
+    bestFor: 'Stealth gameplay, aggressive flanking, medium range',
+    attachments: ['Red Dot Sight', 'Foregrip', 'Extended Mag'],
+    pros: ['Built-in suppressor (no perk/attachment needed)', 'High damage per bullet', 'Great for flanking'],
+    cons: ['Short effective range', 'High credit cost', 'Slower fire rate than other ARs'],
+  },
+  {
+    name: 'P90',
+    slug: 'p90',
+    category: 'SMG',
+    damage: 28,
+    fireRate: 90,
+    range: 'Short',
+    tier: 'A',
+    unlockCost: '3,500 Credits',
+    description: 'The P90 is the king of close-quarters combat in Bullet Force. Its 50-round magazine and screaming fire rate let you push rooms without reloading. Essential on Elevator and indoor sections of Village.',
+    bestFor: 'Close range, indoor maps, aggressive rushing',
+    attachments: ['Laser Sight', 'Extended Mag', 'Suppressor'],
+    pros: ['Highest fire rate of any SMG', '50-round base magazine', 'Dominates close quarters'],
+    cons: ['Poor range — ineffective beyond 30m', 'Low damage per bullet'],
+  },
+  {
+    name: 'Vector',
+    slug: 'vector',
+    category: 'SMG',
+    damage: 32,
+    fireRate: 83,
+    range: 'Short–Medium',
+    tier: 'A',
+    unlockCost: '5,000 Credits',
+    description: 'The Vector combines nearly P90-level fire rate with better damage and smoother recoil. A versatile SMG that works in close quarters while remaining viable in medium-range fights.',
+    bestFor: 'Run-and-gun, fast-paced aggressive play, versatile',
+    attachments: ['Laser Sight', 'Suppressor', 'Extended Mag'],
+    pros: ['High fire rate', 'Better damage than P90', 'Manageable recoil'],
+    cons: ['Expensive at 5,000 credits', 'Still loses to ARs at distance'],
+  },
+  {
+    name: 'MPX',
+    slug: 'mpx',
+    category: 'SMG',
+    damage: 30,
+    fireRate: 78,
+    range: 'Short',
+    tier: 'B',
+    unlockCost: '3,000 Credits',
+    description: 'The MPX is the best starter SMG in Bullet Force. Reliable, affordable, and easy to control — it\'s perfect for learning the game before saving up for the P90 or Vector.',
+    bestFor: 'New players, budget early-game loadout',
+    attachments: ['Red Dot Sight', 'Suppressor'],
+    pros: ['Affordable', 'Easy to control', 'Decent fire rate'],
+    cons: ['Outclassed by P90 and Vector at close range', 'Limited long-range viability'],
+  },
+  {
+    name: 'MK11',
+    slug: 'mk11',
+    category: 'Sniper',
+    damage: 75,
+    fireRate: 30,
+    range: 'Long',
+    tier: 'A',
+    unlockCost: '6,500 Credits',
+    description: 'The MK11 is a semi-automatic marksman rifle that fills the gap between ARs and bolt-action snipers. Its faster follow-up shots make it deadlier in medium-range duels while still threatening at full distance.',
+    bestFor: 'Long-range support, versatile medium-range damage dealer',
+    attachments: ['4× Scope', 'Suppressor', 'Extended Mag'],
+    pros: ['Semi-automatic — faster follow-up shots', 'High damage per bullet', 'Versatile range profile'],
+    cons: ['Slow fire rate compared to ARs', 'Less forgiving than fully-automatic weapons'],
+  },
+  {
+    name: 'M40A5',
+    slug: 'm40a5',
+    category: 'Sniper',
+    damage: 95,
+    fireRate: 18,
+    range: 'Very Long',
+    tier: 'S',
+    unlockCost: '8,000 Credits',
+    description: 'The M40A5 is the premier bolt-action sniper in Bullet Force. Near one-shot potential at all ranges makes it the go-to for dedicated snipers. Devastatingly effective on Dam and City rooftops.',
+    bestFor: 'Long-range sniping, picking off enemies from cover',
+    attachments: ['8× Scope', 'Muzzle Brake', 'Suppressor'],
+    pros: ['Near-one-shot kill power', 'Best sniping range in game', 'Suppressor makes it nearly invisible'],
+    cons: ['Very slow fire rate', 'Bolt-action means zero close-range viability', 'Expensive unlock'],
+  },
+  {
+    name: 'AK-12',
+    slug: 'ak-12',
+    category: 'Assault Rifle',
+    damage: 40,
+    fireRate: 72,
+    range: 'Medium–Long',
+    tier: 'A',
+    unlockCost: '4,500 Credits',
+    description: 'The AK-12 hits harder per bullet than the M4A1 at the cost of slightly more recoil. Skilled players who control bursts will find this one of the highest-damage ARs available in Bullet Force.',
+    bestFor: 'Medium-range combat, burst-fire engagements, experienced players',
+    attachments: ['Red Dot Sight', 'Foregrip', 'Suppressor'],
+    pros: ['High damage per bullet', 'Long effective range', 'Great for burst-fire discipline'],
+    cons: ['More recoil than M4A1', 'Punishing for spray-and-pray players'],
+  },
+];

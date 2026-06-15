@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MapCard from '../../components/MapCard.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import { maps } from '../../data/maps';
+
+const faq = [
+  {
+    question: "How do you get different maps in Bullet Force?",
+    answer: "All Bullet Force maps are available from the start — you don't unlock them. Maps are assigned automatically by the matchmaking system in public lobbies, or you can select a specific map when creating a Custom Room (Multiplayer → Custom Room → Create → select map).",
+  },
+  {
+    question: "Why does Bullet Force only have a few maps?",
+    answer: "Bullet Force was developed largely as an indie solo project by Lucas Wilde (Blayze Games), which limited the scope of map production. The game launched with 3 maps (Dam, Elevator, Village) and expanded to 5. The small team size and browser-first focus kept map count limited compared to AAA FPS games.",
+  },
+  {
+    question: "How do you get out of the map on Bullet Force Outpost?",
+    answer: "The Outpost map has a known out-of-bounds glitch near the perimeter fence. While we are aware of it, using out-of-bounds exploits in competitive matches violates Blayze Games' terms of service and can result in a ban. We recommend playing within the map boundaries.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "All Bullet Force Maps",
+  "description": "Every multiplayer map in Bullet Force with layouts, callouts, and strategy guides.",
+  "itemListElement": maps.map((m, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": m.name,
+    "url": `https://bulletforce.io/maps/${m.slug}`,
+  })),
+};
+---
+
+<BaseLayout
+  title="Bullet Force Maps – All Multiplayer Maps, Layouts & Tips"
+  description="All Bullet Force multiplayer maps: layouts, callouts, and strategies for every map including Dam, Elevator, Village, Outpost, and City."
+  schema={schema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl sm:text-5xl font-black text-white mb-3">
+      All Bullet Force Maps –<br />
+      <span class="text-bf-orange">Layouts & Strategy Guide</span>
+    </h1>
+    <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl">
+      Every <strong class="text-white">Bullet Force map</strong> with size, best game modes, strategies, and top weapon recommendations. Click any map for the full breakdown.
+    </p>
+
+    <!-- Map grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+      {maps.map(m => (
+        <MapCard
+          name={m.name}
+          slug={m.slug}
+          size={m.size}
+          bestMode={m.bestMode}
+          description={m.description}
+        />
+      ))}
+    </div>
+
+    <!-- Quick comparison -->
+    <div class="bg-bf-surface border border-bf-border rounded-2xl p-6 mb-12">
+      <h2 class="text-xl font-bold text-white mb-4">Map Quick Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr>
+              <th class="text-left text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 py-2">Map</th>
+              <th class="text-left text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 py-2">Size</th>
+              <th class="text-left text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 py-2">Best Mode</th>
+              <th class="text-left text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 py-2">Best Weapon Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            {maps.map(m => (
+              <tr class="border-t border-bf-border hover:bg-bf-surface-2 transition-colors">
+                <td class="px-3 py-3 font-semibold">
+                  <a href={`/maps/${m.slug}`} class="text-white hover:text-bf-orange transition-colors">{m.name}</a>
+                </td>
+                <td class="px-3 py-3 text-gray-300">{m.size}</td>
+                <td class="px-3 py-3 text-gray-300">{m.bestMode}</td>
+                <td class="px-3 py-3 text-gray-300">{m.bestWeapons[0]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mb-10">
+      <h2 class="text-2xl font-bold text-white mb-6">Bullet Force Maps – FAQ</h2>
+      <FAQAccordion items={faq} schema={false} />
+    </div>
+
+    <!-- Related -->
+    <div class="flex flex-wrap gap-3">
+      <a href="/weapons" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Weapons Tier List</a>
+      <a href="/guides/how-to-play" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">How to Play</a>
+      <a href="/guides/scorestreaks" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Scorestreaks Guide</a>
+    </div>
+  </div>
+</BaseLayout>

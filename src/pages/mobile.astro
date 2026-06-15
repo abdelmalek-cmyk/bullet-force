@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const faq = [
+  {
+    question: "How do I get Bullet Force on iOS?",
+    answer: "Open the App Store on your iPhone or iPad, search for 'Bullet Force Multiplayer', and tap Get to download the free app by Blayze Games. Requires iOS 12.0 or later.",
+  },
+  {
+    question: "Can I play Bullet Force mobile on PC with Bluestacks?",
+    answer: "Yes. Download Bluestacks (free Android emulator for PC), install it, then search for 'Bullet Force' in the Bluestacks Google Play app and install it. This runs the Android version of Bullet Force on your PC with keyboard and mouse support.",
+  },
+  {
+    question: "What are the touch controls for Bullet Force mobile?",
+    answer: "Bullet Force mobile uses on-screen touch controls: a virtual joystick on the left for movement, a fire button on the right, ADS button for aiming down sights, reload button, and a jump/crouch toggle. All buttons can be repositioned in the mobile Settings menu.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer },
+  })),
+};
+---
+
+<BaseLayout
+  title="Bullet Force Mobile – Android & iOS Download & Tips Guide"
+  description="Play Bullet Force on mobile. Download for Android or iOS, set up touch controls, and get tips for mobile FPS gameplay."
+  schema={schema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl sm:text-5xl font-black text-white mb-4">
+      Bullet Force Mobile –<br />
+      <span class="text-bf-orange">Android & iOS Complete Guide</span>
+    </h1>
+    <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl">
+      Everything you need to play <strong class="text-white">Bullet Force mobile</strong> — download links for Android and iOS, touch control setup, tips for mobile FPS, and how to use Bluestacks on PC.
+    </p>
+
+    <!-- Download cards -->
+    <div class="grid sm:grid-cols-2 gap-6 mb-12">
+      <div class="bg-bf-surface border border-bf-border rounded-2xl p-6">
+        <div class="text-3xl mb-3">🤖</div>
+        <h2 class="text-xl font-bold text-white mb-2">Bullet Force Android</h2>
+        <p class="text-sm text-gray-300 mb-4">
+          The official Bullet Force Android app is available free on Google Play. Supports Android 5.0+ with cross-platform multiplayer against browser and iOS players.
+        </p>
+        <div class="space-y-2 text-xs text-gray-400 mb-5">
+          <div class="flex justify-between"><span>Platform</span><span class="text-gray-200">Android 5.0+</span></div>
+          <div class="flex justify-between"><span>Size</span><span class="text-gray-200">~250 MB</span></div>
+          <div class="flex justify-between"><span>Price</span><span class="text-green-400">Free</span></div>
+          <div class="flex justify-between"><span>Developer</span><span class="text-gray-200">Blayze Games</span></div>
+        </div>
+        <div class="text-sm text-gray-400">Search <strong class="text-white">"Bullet Force"</strong> on the Google Play Store to download.</div>
+      </div>
+
+      <div class="bg-bf-surface border border-bf-border rounded-2xl p-6">
+        <div class="text-3xl mb-3">🍎</div>
+        <h2 class="text-xl font-bold text-white mb-2">Bullet Force iOS</h2>
+        <p class="text-sm text-gray-300 mb-4">
+          Bullet Force is available on the App Store for iPhone and iPad. The iOS version supports touch controls and connects to the same multiplayer servers as Android and browser players.
+        </p>
+        <div class="space-y-2 text-xs text-gray-400 mb-5">
+          <div class="flex justify-between"><span>Platform</span><span class="text-gray-200">iOS 12.0+</span></div>
+          <div class="flex justify-between"><span>Devices</span><span class="text-gray-200">iPhone 6s+, iPad Air 2+</span></div>
+          <div class="flex justify-between"><span>Price</span><span class="text-green-400">Free</span></div>
+          <div class="flex justify-between"><span>Developer</span><span class="text-gray-200">Blayze Games</span></div>
+        </div>
+        <div class="text-sm text-gray-400">Search <strong class="text-white">"Bullet Force Multiplayer"</strong> on the App Store to download.</div>
+      </div>
+    </div>
+
+    <!-- Touch Controls -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Bullet Force Mobile Touch Controls</h2>
+      <p class="text-gray-300 text-sm mb-5">The default touch control layout in Bullet Force mobile:</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { control: 'Movement',   key: 'Left thumb joystick', note: 'Drag to move in any direction' },
+          { control: 'Aim / Look', key: 'Swipe right side',    note: 'Swipe to rotate camera' },
+          { control: 'Fire',       key: 'Fire button (right)', note: 'Tap to shoot from hip' },
+          { control: 'ADS',        key: 'Scope button',        note: 'Tap to aim down sights' },
+          { control: 'Reload',     key: 'Reload button',       note: 'Tap when magazine is low' },
+          { control: 'Jump',       key: 'Jump button',         note: 'Top-left area by default' },
+          { control: 'Crouch',     key: 'Crouch button',       note: 'Toggle crouch mode' },
+          { control: 'Switch Gun', key: 'Weapon toggle',       note: 'Swap to secondary weapon' },
+          { control: 'Grenade',    key: 'Grenade button',      note: 'Throw equipped grenade' },
+        ].map(({ control, key, note }) => (
+          <div class="bg-bf-surface border border-bf-border rounded-xl p-4">
+            <div class="font-semibold text-white text-sm mb-1">{control}</div>
+            <div class="text-xs text-bf-orange mb-0.5">{key}</div>
+            <div class="text-xs text-gray-400">{note}</div>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-gray-500 mt-3">All button positions can be customized in Settings → Controls → Edit Layout.</p>
+    </div>
+
+    <!-- Bluestacks section -->
+    <div class="bg-bf-surface border border-bf-border rounded-2xl p-6 mb-12">
+      <h2 class="text-xl font-bold text-white mb-2">Play Bullet Force Android on PC with Bluestacks</h2>
+      <p class="text-sm text-gray-300 mb-4">
+        Prefer keyboard and mouse on PC but want the Android version? Bluestacks is a free Android emulator that lets you run the Bullet Force mobile app on Windows or Mac with full keyboard/mouse input.
+      </p>
+      <ol class="text-sm text-gray-300 space-y-2 ml-4 list-decimal mb-4">
+        <li>Download <strong class="text-white">Bluestacks</strong> from the official Bluestacks website</li>
+        <li>Install and sign in with your Google account</li>
+        <li>Open the <strong class="text-white">Google Play Store</strong> inside Bluestacks</li>
+        <li>Search <strong class="text-white">"Bullet Force"</strong> and install</li>
+        <li>Configure keyboard controls in Bluestacks settings (keymapping)</li>
+      </ol>
+      <p class="text-xs text-gray-400">Note: The browser version (CrazyGames/Poki) is generally smoother on PC than the emulated Android version.</p>
+    </div>
+
+    <!-- Tips for mobile -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Bullet Force Mobile Tips</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          { tip: 'Adjust sensitivity first', desc: 'Default sensitivity is often too high for mobile. Lower it by 20–30% in Settings to improve aim control.' },
+          { tip: 'Use SMGs on mobile', desc: 'SMGs like the P90 and MPX are more forgiving with touch controls — high fire rate compensates for aim imprecision.' },
+          { tip: 'Enable aim assist', desc: 'Bullet Force mobile has aim assist for touch controls. Make sure it\'s enabled in Settings for easier targeting.' },
+          { tip: 'Play on Elevator first', desc: 'The small, close-quarters Elevator map is the best starting map for mobile players — less need for long-range precision.' },
+          { tip: 'Use headphones', desc: 'Audio cues (footsteps, reloading) are critical for positioning. Headphones give you a significant awareness advantage.' },
+          { tip: 'Keep your battery charged', desc: 'Bullet Force drains battery quickly on mobile. Play with the device charging or in performance-limited power mode to reduce heat.' },
+        ].map(({ tip, desc }) => (
+          <div class="flex gap-3 bg-bf-surface border border-bf-border rounded-xl p-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-bf-orange flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div>
+              <div class="font-semibold text-white text-sm mb-0.5">{tip}</div>
+              <p class="text-xs text-gray-400 leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mb-10">
+      <h2 class="text-2xl font-bold text-white mb-6">Bullet Force Mobile – FAQ</h2>
+      <FAQAccordion items={faq} schema={false} />
+    </div>
+
+    <!-- Related -->
+    <div class="flex flex-wrap gap-3">
+      <a href="/download" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Download Guide – All Platforms</a>
+      <a href="/guides/controls" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">PC Controls Guide</a>
+      <a href="/play" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Play in Browser Instead</a>
+    </div>
+  </div>
+</BaseLayout>

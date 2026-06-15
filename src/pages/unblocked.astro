@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GameEmbed from '../components/GameEmbed.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const faq = [
+  {
+    question: "Why is Bullet Force blocked at school?",
+    answer: "Schools block gaming websites using network-level filters to prevent distraction during class time. These filters typically block domains categorized as \"Games\" by the filtering software. Bullet Force domains on CrazyGames and Poki are commonly flagged. The game itself is not dangerous — it's a standard browser FPS.",
+  },
+  {
+    question: "How do I play Bullet Force unblocked on a Chromebook?",
+    answer: "On a Chromebook, open Chrome and navigate to an unblocked version of Bullet Force hosted on Google Sites, or use platforms like KBH Games and Unblocked Games 76, which typically bypass school filters. You can also ask your IT department to whitelist the game's WebGL domain.",
+  },
+  {
+    question: "Does Bullet Force unblocked work on Google Sites?",
+    answer: "Yes. Google Sites is a commonly used workaround because school networks typically whitelist Google's domains. Students and teachers have uploaded Bullet Force to Google Sites, making it accessible when CrazyGames and Poki are blocked. Search for \"bullet force unblocked google sites\" to find active links.",
+  },
+  {
+    question: "Is Bullet Force unblocked safe to play?",
+    answer: "Yes. Bullet Force is a legitimate commercial game by Blayze Games. The Unity WebGL version running on browser platforms is safe. If you see an antivirus or browser warning (especially from Avast), it's a false positive common with WebGL games — not actual malware. See our <a href='/faq#troubleshooting'>troubleshooting guide</a> for details.",
+  },
+  {
+    question: "What is the best unblocked version of Bullet Force?",
+    answer: "The best unblocked Bullet Force options are: <strong>KBH Games</strong> (reliable, no signup needed), <strong>Unblocked Games 76</strong> (wide selection of unblocked games), and <strong>Google Sites versions</strong> (most likely to pass school filters). All run the same Unity WebGL game.",
+  },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faq.map(({ question, answer }) => ({
+      "@type": "Question",
+      "name": question,
+      "acceptedAnswer": { "@type": "Answer", "text": answer.replace(/<[^>]+>/g, '') },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="Bullet Force Unblocked – Play at School & Work (No Download)"
+  description="Play Bullet Force unblocked at school or work. Full browser version, no restrictions, no download required. Works on Chromebook and Google Sites."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-bf-darker to-bf-dark border-b border-bf-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg>
+        Unblocked — No VPN, No Proxy, No Download
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-black text-white leading-tight mb-4">
+        Bullet Force Unblocked –<br />
+        <span class="text-bf-orange">Play Free Anywhere</span>
+      </h1>
+      <p class="text-gray-300 text-lg leading-relaxed max-w-2xl mb-6">
+        Play <strong class="text-white">Bullet Force unblocked</strong> at school, work, or anywhere with restricted internet access.
+        No VPN needed. No proxy. No download. The full browser FPS runs on any Chromebook, PC, or laptop directly through your browser.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="#play-unblocked" class="bg-bf-orange hover:bg-bf-orange-dark text-white font-bold px-7 py-3.5 rounded-xl transition-colors">
+          Play Unblocked Now
+        </a>
+        <a href="/play" class="bg-bf-surface border border-bf-border text-white font-semibold px-5 py-3.5 rounded-xl hover:bg-bf-surface-2 transition-colors">
+          Standard Version
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game -->
+  <section id="play-unblocked" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <GameEmbed />
+  </section>
+
+  <!-- How to play unblocked -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-bf-border">
+    <h2 class="text-2xl font-bold text-white mb-2">How to Play Bullet Force Unblocked</h2>
+    <p class="text-gray-400 text-sm mb-6">Multiple methods work depending on what your school or network blocks:</p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {[
+        {
+          method: 'Google Sites',
+          badge: 'Best for School',
+          badgeColor: 'bg-green-500/10 text-green-400 border-green-500/20',
+          desc: 'Students host Bullet Force on Google Sites because most school networks whitelist Google domains. Search for "bullet force unblocked google sites" to find a current link.',
+        },
+        {
+          method: 'Unblocked Games 76',
+          badge: 'Popular',
+          badgeColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+          desc: 'Unblocked Games 76 hosts Bullet Force and hundreds of other browser games. The site is designed to bypass typical school content filters.',
+        },
+        {
+          method: 'KBH Games',
+          badge: 'No Signup',
+          badgeColor: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+          desc: 'KBH Games runs the full Bullet Force multiplayer experience without any account required. A reliable unblocked option that works on Chromebook.',
+        },
+        {
+          method: 'Unblocked Games 66',
+          badge: 'Alternative',
+          badgeColor: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
+          desc: 'Another popular unblocked games directory hosting Bullet Force. Works at many schools where other gaming sites are restricted.',
+        },
+        {
+          method: 'Weebly / Direct URL',
+          badge: 'Workaround',
+          badgeColor: 'bg-gray-500/10 text-gray-400 border-gray-500/20',
+          desc: 'Some users embed the Bullet Force WebGL game on Weebly free sites or personal portfolios. Since these aren\'t on blocklists, they often work at school.',
+        },
+        {
+          method: 'Chrome Extension',
+          badge: 'VPN Alternative',
+          badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
+          desc: 'Some browser extensions provide lightweight proxying without a full VPN setup. Use only on personal devices, never on school-managed hardware.',
+        },
+      ].map(({ method, badge, badgeColor, desc }) => (
+        <div class="bg-bf-surface border border-bf-border rounded-xl p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-semibold text-white text-sm">{method}</h3>
+            <span class={`text-xs px-2 py-0.5 rounded border font-medium ${badgeColor}`}>{badge}</span>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Bullet Force Unblocked on Chromebook -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-bf-border">
+    <h2 class="text-2xl font-bold text-white mb-4">Bullet Force Unblocked on Chromebook</h2>
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div class="text-gray-300 space-y-3 text-sm leading-relaxed">
+        <p>Chromebooks are the most common school device, and Bullet Force runs perfectly on them since it's a browser game with no desktop installation required.</p>
+        <p>If your school Chromebook has restricted internet, try these methods in order:</p>
+        <ol class="list-decimal ml-5 space-y-2">
+          <li><strong class="text-white">Google Sites version</strong> — most likely to be unblocked since it's on Google's domain.</li>
+          <li><strong class="text-white">KBH Games or Unblocked 76</strong> — specifically designed for school networks.</li>
+          <li><strong class="text-white">Ask IT</strong> — if Bullet Force is used for legitimate purposes, your school IT may whitelist it.</li>
+          <li><strong class="text-white">Personal hotspot</strong> — use your phone's mobile data instead of the school's Wi-Fi (check your school's rules first).</li>
+        </ol>
+        <p>The game uses <strong class="text-white">Unity WebGL</strong>, which requires WebGL support in Chrome — Chromebooks support this by default.</p>
+      </div>
+      <div class="bg-bf-surface border border-bf-border rounded-xl p-5">
+        <h3 class="font-semibold text-white mb-3">Bullet Force Unblocked — Quick Facts</h3>
+        <ul class="space-y-3 text-sm">
+          {[
+            { q: 'Does it need a VPN?',     a: 'No. Works without any VPN or proxy.' },
+            { q: 'Download required?',       a: 'No. Runs 100% in your browser.' },
+            { q: 'Works on Chromebook?',     a: 'Yes. Any modern Chrome browser.' },
+            { q: 'Is it safe?',              a: 'Yes. Legitimate game by Blayze Games.' },
+            { q: 'Does it save progress?',   a: 'Yes, if you log in to your BF account.' },
+            { q: 'Full multiplayer?',         a: 'Yes. Same servers, same players.' },
+          ].map(({ q, a }) => (
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><span class="text-gray-300 font-medium">{q}</span> — <span class="text-gray-400">{a}</span></span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ / AEO -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-bf-border">
+    <h2 class="text-2xl font-bold text-white mb-7">Bullet Force Unblocked – FAQ</h2>
+    <FAQAccordion items={faq} schema={false} />
+  </section>
+
+  <!-- Related -->
+  <section class="bg-bf-surface border-t border-bf-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
+      <p class="text-xs text-gray-500 mb-3">Related:</p>
+      <div class="flex flex-wrap gap-3">
+        {[
+          { href: '/play',                  label: 'Play Online — All Platforms' },
+          { href: '/guides/controls',       label: 'Controls Guide' },
+          { href: '/guides/how-to-play',    label: 'Beginner\'s Guide' },
+          { href: '/faq#troubleshooting',   label: 'Fix Loading Issues' },
+          { href: '/download',              label: 'Download for PC / Mobile' },
+        ].map(({ href, label }) => (
+          <a href={href} class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5 hover:border-bf-orange transition-colors">
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

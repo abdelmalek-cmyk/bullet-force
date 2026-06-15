@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GameEmbed from '../components/GameEmbed.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const faq = [
+  {
+    question: "Can you play Bullet Force on PC?",
+    answer: "Yes. Bullet Force runs in any modern PC browser — Chrome, Firefox, Edge, or Brave. No download or install required. Just open the page, click Play, and the Unity WebGL game launches instantly.",
+  },
+  {
+    question: "Does Bullet Force save progress on PacoGames?",
+    answer: "Progress in Bullet Force is tied to your Bullet Force account, not the platform you play on. If you register and log in to your Bullet Force account on PacoGames, your progress, weapons, and gold will save. Playing as a guest means progress is lost when you close the tab.",
+  },
+  {
+    question: "How can you play Bullet Force with no ads?",
+    answer: "Poki offers a mostly ad-free experience for Bullet Force. Alternatively, using the CrazyGames desktop app or subscribing to CrazyGames Pro removes interstitial ads. An ad blocker may also reduce ads, though it can sometimes interfere with game loading.",
+  },
+  {
+    question: "How many people play Bullet Force?",
+    answer: "Bullet Force consistently attracts tens of thousands of daily active players across CrazyGames, Poki, and the mobile apps. CrazyGames lists it among their top-played FPS titles with millions of monthly plays.",
+  },
+  {
+    question: "How do I throw grenades in Bullet Force on CrazyGames?",
+    answer: "Press <strong>G</strong> to throw a grenade in Bullet Force on CrazyGames (and all browser versions). Make sure you have grenades equipped in your loadout before the match. You can also rebind grenade to another key in Settings.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer.replace(/<[^>]+>/g, '') },
+  })),
+};
+
+const platforms = [
+  { name: 'CrazyGames',  url: '#', note: 'Most-played version. Sign in with your BF account.' },
+  { name: 'Poki',        url: '#', note: 'Clean UI, minimal ads. Desktop & mobile.' },
+  { name: 'Miniplay',    url: '#', note: 'Alternative browser host.' },
+  { name: 'PacoGames',   url: '#', note: 'Saves progress when logged in.' },
+  { name: 'KBH Games',   url: '#', note: 'Unblocked browser version.' },
+  { name: 'Itch.io',     url: '#', note: 'Community-uploaded browser build.' },
+];
+---
+
+<BaseLayout
+  title="Play Bullet Force Online Free – Browser FPS No Download"
+  description="Play Bullet Force online for free in your browser. No download, no install – just open and play the multiplayer FPS instantly on CrazyGames, Poki, and more."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-bf-darker to-bf-dark border-b border-bf-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div class="max-w-2xl">
+        <h1 class="text-4xl sm:text-5xl font-black text-white leading-tight mb-4">
+          Play Bullet Force Online –<br />
+          <span class="text-bf-orange">Free Browser FPS</span>
+        </h1>
+        <p class="text-gray-300 leading-relaxed mb-6 text-lg">
+          Play <strong class="text-white">Bullet Force</strong> directly in your browser — no download, no install, no plugin.
+          The <strong class="text-white">bullet force crazy games</strong> version runs on Unity WebGL and launches in seconds on any PC or Chromebook.
+          Available on CrazyGames, Poki, Miniplay, PacoGames, KBH Games, and more.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#game" class="bg-bf-orange hover:bg-bf-orange-dark text-white font-bold px-6 py-3 rounded-xl transition-colors">
+            Play Now — Free
+          </a>
+          <a href="/unblocked" class="bg-bf-surface border border-bf-border text-white font-semibold px-5 py-3 rounded-xl hover:bg-bf-surface-2 transition-colors">
+            Unblocked Version
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game Embed -->
+  <section id="game" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <GameEmbed />
+  </section>
+
+  <!-- Platform List -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-bf-border">
+    <h2 class="text-2xl font-bold text-white mb-2">Where to Play Bullet Force Online</h2>
+    <p class="text-gray-400 mb-6 text-sm">
+      Bullet Force is available on multiple browser gaming platforms. All versions run the same Unity WebGL game — your logged-in account syncs progress across platforms.
+    </p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {platforms.map(({ name, note }) => (
+        <div class="bg-bf-surface border border-bf-border rounded-xl p-4">
+          <div class="font-semibold text-white mb-1">{name}</div>
+          <p class="text-xs text-gray-400">{note}</p>
+        </div>
+      ))}
+    </div>
+    <p class="text-xs text-gray-500 mt-4">
+      Note: We do not host the game directly. Links open the official Bullet Force browser game on each platform.
+    </p>
+  </section>
+
+  <!-- Why play in browser -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-bf-border">
+    <h2 class="text-2xl font-bold text-white mb-6">Why Play Bullet Force in the Browser?</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {[
+        { icon: '⚡', title: 'Instant Play', desc: 'No download, no install. Click Play and you\'re in a lobby in under 30 seconds.' },
+        { icon: '💻', title: 'Any PC or Chromebook', desc: 'Works on Windows, Mac, Linux, and Chromebook — any device with Chrome or Firefox.' },
+        { icon: '🆓', title: 'Completely Free', desc: 'Bullet Force is 100% free to play in browser. Purchases only affect cosmetics and weapon unlocks.' },
+        { icon: '🔄', title: 'Always Updated', desc: 'The browser version gets Blayze Games updates automatically — no manual patches needed.' },
+        { icon: '🌍', title: 'Global Servers', desc: 'Matchmaking connects you to the nearest server region for low-ping multiplayer matches.' },
+        { icon: '📱', title: 'Save Progress', desc: 'Create a free Bullet Force account and your guns, gold, and stats carry across all platforms.' },
+      ].map(({ icon, title, desc }) => (
+        <div class="bg-bf-surface border border-bf-border rounded-xl p-5">
+          <div class="text-2xl mb-3">{icon}</div>
+          <h3 class="font-semibold text-white mb-1 text-sm">{title}</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-bf-border">
+    <h2 class="text-2xl font-bold text-white mb-7">Play Bullet Force Online – FAQ</h2>
+    <FAQAccordion items={faq} schema={false} />
+  </section>
+
+  <!-- Related links -->
+  <section class="bg-bf-surface border-t border-bf-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <p class="text-sm text-gray-400 mb-3">Related guides:</p>
+      <div class="flex flex-wrap gap-3">
+        {[
+          { href: '/unblocked',           label: 'Play Unblocked at School' },
+          { href: '/guides/controls',     label: 'PC Controls & Keybinds' },
+          { href: '/guides/how-to-play',  label: 'How to Play – Beginner Guide' },
+          { href: '/download',            label: 'Download for PC & Mobile' },
+          { href: '/faq#troubleshooting', label: 'Fix Loading Issues' },
+        ].map(({ href, label }) => (
+          <a href={href} class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5 hover:border-bf-orange transition-colors">
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

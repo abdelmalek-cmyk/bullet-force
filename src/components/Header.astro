@@ -1,0 +1,87 @@
+---
+const navLinks = [
+  { href: '/play',      label: 'Play' },
+  { href: '/unblocked', label: 'Unblocked' },
+  { href: '/weapons',   label: 'Weapons' },
+  { href: '/maps',      label: 'Maps' },
+  { href: '/guides',    label: 'Guides' },
+  { href: '/download',  label: 'Download' },
+  { href: '/faq',       label: 'FAQ' },
+];
+
+const path = Astro.url.pathname;
+const active = (href: string) =>
+  path === href || (href !== '/' && path.startsWith(href + '/'));
+---
+
+<header class="sticky top-0 z-50 bg-bf-darker/95 backdrop-blur-md border-b border-bf-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6">
+
+    <a href="/" class="flex items-center gap-2 font-extrabold text-xl shrink-0">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-bf-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+      </svg>
+      <span class="text-white">Bullet<span class="text-bf-orange">Force</span></span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-1" aria-label="Main navigation">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+            active(href)
+              ? 'text-bf-orange bg-bf-orange/10'
+              : 'text-gray-300 hover:text-white hover:bg-bf-surface'
+          }`}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hidden md:flex items-center gap-3">
+      <a href="/mobile" class="text-sm text-gray-400 hover:text-gray-200 transition-colors">Mobile</a>
+      <a
+        href="/play"
+        class="inline-flex items-center gap-1.5 bg-bf-orange hover:bg-bf-orange-dark text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors shadow-md shadow-orange-900/30"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Play Now
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="nav-toggle" class="md:hidden p-2 text-gray-300 hover:text-white" aria-label="Open menu" aria-expanded="false">
+      <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-nav" class="hidden md:hidden border-t border-bf-border bg-bf-darker px-4 py-3 space-y-1">
+    {navLinks.map(({ href, label }) => (
+      <a href={href} class="block py-2 px-3 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-bf-surface transition-colors">
+        {label}
+      </a>
+    ))}
+    <div class="pt-2">
+      <a href="/play" class="block text-center bg-bf-orange text-white font-bold py-2.5 rounded-lg text-sm">
+        Play Now — Free
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('nav-toggle');
+  const menu = document.getElementById('mobile-nav');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+  btn?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(open));
+    iconOpen?.classList.toggle('hidden', open);
+    iconClose?.classList.toggle('hidden', !open);
+  });
+</script>

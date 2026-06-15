@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const faq = [
+  {
+    question: "How do I get skins in Bullet Force?",
+    answer: "Skins in Bullet Force are obtained by opening Cases (loot boxes) purchased with Gold. Some skins are also available for direct purchase in the in-game shop for Gold. To unlock skins: earn Gold through gameplay (daily bonuses, match performance) or purchase Gold, then open Cases in the lobby menu.",
+  },
+  {
+    question: "Why doesn't Bullet Force keep my gun and skins?",
+    answer: "If your guns and skins are disappearing, you are playing as a guest. Guest sessions reset every time you close the browser. To keep your skins, weapons, and cosmetics permanently: create a free Bullet Force account, register, and always log in before playing. Your account saves all progress. See the <a href='/account'>Account Guide</a>.",
+  },
+  {
+    question: "How do I get skins in Bullet Force multiplayer?",
+    answer: "In the multiplayer lobby, go to the Armory or Shop section (depending on your version). Open Cases with Gold to receive random weapon skins and character cosmetics. You can preview which items are in a case before opening. Equipped skins are visible to other players in-match.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer.replace(/<[^>]+>/g, '') },
+  })),
+};
+---
+
+<BaseLayout
+  title="Bullet Force Skins – All Weapon & Character Cosmetics"
+  description="Browse all Bullet Force skins. Weapon skins, character cosmetics, how to unlock them, and what they cost in gold and credits."
+  schema={schema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl sm:text-5xl font-black text-white mb-4">
+      Bullet Force Skins –<br />
+      <span class="text-bf-orange">All Cosmetics & How to Unlock</span>
+    </h1>
+    <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl">
+      Browse all <strong class="text-white">Bullet Force skins</strong> — weapon skins, character cosmetics, how to unlock them, and how the cosmetic economy works.
+    </p>
+
+    <!-- Skin categories -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+      {[
+        { cat: 'Weapon Camos', icon: '🔫', desc: 'Custom camouflage patterns applied to individual weapons. Each weapon has its own camo slot — unlocking a camo does NOT automatically unlock the weapon itself.' },
+        { cat: 'Character Skins', icon: '🪖', desc: 'Full character model appearances that change how your soldier looks to enemies and teammates in-match. Obtained via Crates or direct Gold purchase.' },
+        { cat: 'Crates', icon: '📦', desc: 'Loot boxes containing random weapon camos, character skins, credits, and sometimes weapons. Available as free Ad Crates (watch an ad) or purchasable Crates (100 Gold each).' },
+      ].map(({ cat, icon, desc }) => (
+        <div class="bg-bf-surface border border-bf-border rounded-2xl p-6">
+          <div class="text-3xl mb-3">{icon}</div>
+          <h2 class="font-bold text-white mb-2">{cat}</h2>
+          <p class="text-sm text-gray-300 leading-relaxed">{desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Critical warning -->
+    <div class="bg-bf-surface border border-red-500/30 rounded-2xl p-5 mb-10">
+      <p class="text-sm font-bold text-red-400 mb-1">Important: Skins ≠ Weapons</p>
+      <p class="text-sm text-gray-300">
+        Unlocking a weapon skin (camo) does <strong class="text-white">NOT</strong> automatically unlock that weapon for use. You must purchase the weapon separately with Credits or Gold. The camo only applies once you own the weapon.
+      </p>
+    </div>
+
+    <!-- How to get skins -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-5">How to Get Skins in Bullet Force</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          { method: 'Ad Crates (Free)', cost: 'Free — watch a short ad', desc: 'The easiest free method. In the lobby, open a Crate by watching a short advertisement. You can claim one Ad Crate approximately every 2 minutes. Contents include credits, camos, and occasionally weapons.' },
+          { method: 'Purchasable Crates', cost: '100 Gold each', desc: 'Buy standard Crates from the shop for 100 Gold each. Better odds than Ad Crates and guaranteed to include at least one cosmetic item. Stack Gold from daily bonuses to open these for free.' },
+          { method: 'Direct Purchase', cost: 'Gold', desc: 'Some skins and camos are available for direct purchase in the in-game Shop without RNG. Browse the Armory, select a specific skin, and buy it outright.' },
+          { method: 'Daily Missions', cost: 'Free (complete missions)', desc: 'Check the Missions tab daily. Completing simple tasks awards Credits and occasionally Gold or Crates. The most consistent free source of cosmetic rewards over time.' },
+        ].map(({ method, cost, desc }) => (
+          <div class="bg-bf-surface border border-bf-border rounded-xl p-5">
+            <h3 class="font-semibold text-white mb-1 text-sm">{method}</h3>
+            <div class="text-xs text-bf-orange mb-2">{cost}</div>
+            <p class="text-xs text-gray-400 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-5 bg-bf-surface border border-yellow-500/20 rounded-xl p-4 text-sm text-yellow-200">
+        <strong>Pro tip:</strong> Watch the maximum Ad Crates every day. Over a month that adds up to hundreds of free crate openings — a significant amount of free cosmetics without spending Gold.
+      </div>
+    </div>
+
+    <!-- Important note about saving skins -->
+    <div class="bg-bf-surface border border-bf-orange/20 rounded-2xl p-6 mb-12">
+      <h2 class="text-xl font-bold text-white mb-2">Why Are Your Skins Disappearing?</h2>
+      <p class="text-sm text-gray-300 mb-3">
+        If your skins and weapons keep resetting, you are playing as a <strong class="text-white">Guest</strong>. Guest sessions don't save anything — when you close the tab, everything resets.
+      </p>
+      <p class="text-sm text-gray-300 mb-4">
+        To permanently keep your skins: <strong class="text-white">create a free Bullet Force account and always log in</strong> before playing. Your skins, weapons, and Gold are stored in your account and sync across browser, Android, and iOS.
+      </p>
+      <a href="/account" class="inline-flex items-center gap-1.5 bg-bf-orange hover:bg-bf-orange-dark text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors">
+        Account Setup Guide →
+      </a>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mb-10">
+      <h2 class="text-2xl font-bold text-white mb-6">Bullet Force Skins – FAQ</h2>
+      <FAQAccordion items={faq} schema={false} />
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+      <a href="/guides/gold-credits" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">How to Earn Gold (for Cases)</a>
+      <a href="/account" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Account Guide (Save Your Skins)</a>
+      <a href="/weapons" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Weapons Guide</a>
+    </div>
+  </div>
+</BaseLayout>

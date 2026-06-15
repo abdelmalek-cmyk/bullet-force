@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const faq = [
+  {
+    question: "When will Bullet Force release on Steam?",
+    answer: "As of 2025, Bullet Force has not announced a Steam release. Blayze Games distributes the game through browser platforms (CrazyGames, Poki) and mobile app stores. There is no confirmed Steam release date.",
+  },
+  {
+    question: "How do I update Bullet Force?",
+    answer: "Browser version: Bullet Force updates automatically — just clear your cache and reload the page to get the latest version. Mobile (Android/iOS): Updates come through Google Play or the App Store. Enable auto-updates or manually check for updates in your app store.",
+  },
+  {
+    question: "Does Lucky Patcher work with Bullet Force?",
+    answer: "No. Lucky Patcher and similar modding tools do not work with Bullet Force because the game processes purchases and currency server-side. Any client-side modification is detected and can result in a permanent ban.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer },
+  })),
+};
+
+const updates = [
+  { version: '2024 – Latest', date: '2024', highlights: ['Server stability improvements', 'Anti-cheat system updates', 'Bug fixes and performance optimizations', 'Mobile UI improvements'] },
+  { version: '2022–2023', date: '2022–2023', highlights: ['Ongoing balance patches for weapon damage values', 'Matchmaking improvements for faster lobby fill', 'Mobile performance updates', 'Community-reported bug fixes'] },
+  { version: '2019 Cosmetic Update', date: '2019', highlights: ['Weapon skins system introduced', 'Character cosmetics and cases added', 'Daily login reward system', 'Expanded Gold economy'] },
+  { version: '2018 Scorestreak Update', date: '2018', highlights: ['Scorestreak system added: UAV, Airstrike, Helicopter', 'Perk system expanded with new perk slots', 'Weapon attachment system (suppressor, scopes, grip)', 'New weapon attachments: Muzzle Brake, Laser Sight'] },
+  { version: '2017 Mobile Update', date: '2017', highlights: ['Android app released on Google Play', 'Cross-platform multiplayer (browser + mobile)', 'Touch control customization', 'Mobile-specific performance settings'] },
+  { version: '2016 iOS Release', date: '2016', highlights: ['iOS app released on the App Store', 'Conquest game mode added', 'New weapons added to the armory', 'Server region selection introduced'] },
+  { version: '2015 Original Launch', date: '2015', highlights: ['Bullet Force launches as Unity WebGL browser game', 'Team Deathmatch and Free For All modes', '3 maps: Dam, Elevator, Village', 'Basic weapon selection: ARs, SMGs, Snipers'] },
+];
+---
+
+<BaseLayout
+  title="Bullet Force Updates – Full Patch Notes & Version History"
+  description="All Bullet Force updates, patch notes, and version history from 2015 to the latest release. Track new features, bug fixes, and content additions."
+  schema={schema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl sm:text-5xl font-black text-white mb-4">
+      Bullet Force Updates –<br />
+      <span class="text-bf-orange">Complete Patch Notes & Version History</span>
+    </h1>
+    <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl">
+      Complete <strong class="text-white">Bullet Force update</strong> history from the 2015 original launch through the latest changes. Track every major content addition, feature release, and bug fix.
+    </p>
+
+    <div class="relative pl-6 border-l border-bf-border space-y-8 mb-12">
+      {updates.map(({ version, date, highlights }) => (
+        <div class="relative">
+          <div class="absolute -left-[1.625rem] w-4 h-4 bg-bf-orange rounded-full border-2 border-bf-dark" aria-hidden="true"></div>
+          <div class="bg-bf-surface border border-bf-border rounded-xl p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <h2 class="font-bold text-white">{version}</h2>
+              <span class="text-xs text-gray-500">{date}</span>
+            </div>
+            <ul class="space-y-1.5">
+              {highlights.map(h => (
+                <li class="flex items-start gap-2 text-sm text-gray-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-bf-orange flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-bf-surface border border-bf-border rounded-xl p-5 mb-12 text-sm text-gray-400">
+      <strong class="text-gray-200">Note:</strong> This is a community-compiled history. Blayze Games does not publish formal patch notes for all updates.
+      For the most current information, follow the official Bullet Force social media or Discord. See <a href="/community" class="text-bf-orange hover:underline">Community & Discord</a>.
+    </div>
+
+    <div class="mb-10">
+      <h2 class="text-2xl font-bold text-white mb-6">Update FAQ</h2>
+      <FAQAccordion items={faq} schema={false} />
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+      <a href="/about" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">About Bullet Force & Developer</a>
+      <a href="/community" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Discord & Community (Latest News)</a>
+    </div>
+  </div>
+</BaseLayout>

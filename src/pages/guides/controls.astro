@@ -1,0 +1,251 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+const toc = [
+  { id: 'keybinds-table',    label: 'Full Keybinds Table' },
+  { id: 'movement',          label: 'Movement Controls' },
+  { id: 'aiming-shooting',   label: 'Aiming & Shooting' },
+  { id: 'weapons',           label: 'Weapons & Knife' },
+  { id: 'grenades',          label: 'Grenades' },
+  { id: 'settings',          label: 'Sensitivity & Settings' },
+  { id: 'fullscreen',        label: 'Fullscreen' },
+  { id: 'controller',        label: 'Controller' },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Aim in Bullet Force on PC",
+    "step": [
+      { "@type": "HowToStep", "name": "Hold Right Mouse Button", "text": "Hold Right Click (RMB) to aim down sights (ADS) and significantly increase your accuracy." },
+      { "@type": "HowToStep", "name": "Move mouse to aim", "text": "Move your mouse to track targets while holding RMB for precise aim." },
+      { "@type": "HowToStep", "name": "Release to hip fire", "text": "Release RMB to return to hip fire for faster movement and wider awareness." },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you sprint in Bullet Force?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hold Shift while moving forward with W to sprint in Bullet Force. Sprinting increases your movement speed but prevents you from shooting until you stop sprinting." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you crouch in Bullet Force?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Press Left Ctrl to crouch in Bullet Force on PC. Crouching reduces your hitbox and improves accuracy but slows your movement speed." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I aim in Bullet Force?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hold Right Mouse Button (RMB) to aim down sights (ADS) in Bullet Force. This zooms into your weapon's sights and improves accuracy at medium to long range. Release RMB to return to hip fire." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I go fullscreen in Bullet Force?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Press F to enter fullscreen in Bullet Force on PC. Alternatively, use your browser's fullscreen (F11) and the game will fill the screen. On Poki, click the fullscreen button in the game UI." }
+      },
+    ],
+  },
+];
+---
+
+<GuideLayout
+  title="Bullet Force Controls – Full PC Keyboard & Mouse Keybinds"
+  description="Complete Bullet Force controls guide. All keyboard keybinds for PC: move, aim, sprint, crouch, knife, scope, grenades, fullscreen and more."
+  schema={schema}
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'Controls' }]}
+  toc={toc}
+>
+  <h1>Bullet Force Controls – Complete PC Keyboard & Mouse Guide</h1>
+
+  <p>
+    This is the complete <strong>Bullet Force controls</strong> reference for PC. Every default keybind is listed below with tips on how and when to use each action.
+    All keybinds can be customized in-game under Settings → Controls.
+  </p>
+
+  <!-- Full Keybinds Table -->
+  <h2 id="keybinds-table">Full Bullet Force Keybinds Table</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Action</th>
+        <th>Default Key</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Move Forward</td><td><code>W</code></td><td>Basic forward movement</td></tr>
+      <tr><td>Move Backward</td><td><code>S</code></td><td>Back-pedal while aiming</td></tr>
+      <tr><td>Strafe Left</td><td><code>A</code></td><td>Side movement</td></tr>
+      <tr><td>Strafe Right</td><td><code>D</code></td><td>Side movement</td></tr>
+      <tr><td>Sprint</td><td><code>Shift</code></td><td>Hold while moving to sprint</td></tr>
+      <tr><td>Jump</td><td><code>Space</code></td><td>Single jump; no double jump in base game</td></tr>
+      <tr><td>Crouch</td><td><code>Ctrl</code></td><td>Toggle or hold depending on settings</td></tr>
+      <tr><td>Shoot (Hip Fire)</td><td><code>Left Click</code></td><td>Fire from the hip — less accurate</td></tr>
+      <tr><td>Aim Down Sights (ADS)</td><td><code>Right Click</code></td><td>Hold to aim; increases accuracy</td></tr>
+      <tr><td>Reload</td><td><code>R</code></td><td>Manual reload; auto-reloads when empty</td></tr>
+      <tr><td>Melee / Knife</td><td><code>F</code></td><td>Close-range melee swing — high damage, short reach</td></tr>
+      <tr><td>Pick Up Weapon</td><td><code>E</code></td><td>Pick up enemy or dropped weapon from the ground</td></tr>
+      <tr><td>Throw Grenade</td><td><code>G</code></td><td>Throws equipped grenade or shuriken</td></tr>
+      <tr><td>Switch to Primary</td><td><code>1</code></td><td>Equip primary weapon</td></tr>
+      <tr><td>Switch to Secondary</td><td><code>2</code></td><td>Equip secondary weapon (pistol)</td></tr>
+      <tr><td>Quick Swap</td><td><code>Q</code></td><td>Instantly swap between last two weapons</td></tr>
+      <tr><td>Scope / Zoom</td><td><code>Right Click</code></td><td>With sniper equipped: right-click to scope in</td></tr>
+      <tr><td>Scoreboard</td><td><code>Tab</code></td><td>Hold to view live scoreboard</td></tr>
+      <tr><td>Open Chat</td><td><code>T</code></td><td>Opens text chat input to message teammates</td></tr>
+      <tr><td>Game Menu</td><td><code>P</code></td><td>Opens the in-game menu / pause screen</td></tr>
+      <tr><td>Pause / Settings</td><td><code>Escape</code></td><td>Open pause menu during a match</td></tr>
+      <tr><td>Fullscreen</td><td><code>F11</code></td><td>Browser fullscreen; toggle fullscreen in-game from settings</td></tr>
+      <tr><td>Killstreak Slot 1</td><td><code>Left Arrow</code></td><td>Activates earned killstreak in slot 1</td></tr>
+      <tr><td>Killstreak Slot 2</td><td><code>Up Arrow</code></td><td>Activates earned killstreak in slot 2</td></tr>
+      <tr><td>Killstreak Slot 3</td><td><code>Right Arrow</code></td><td>Activates earned killstreak in slot 3</td></tr>
+    </tbody>
+  </table>
+
+  <blockquote>
+    <strong>Keybind editor added October 2025:</strong> All keys are fully rebindable in <strong>Settings → Controls → Keybindings</strong>. Click any action and press your preferred key. Changes apply immediately — no restart needed.
+  </blockquote>
+
+  <!-- Movement -->
+  <h2 id="movement">Movement Controls</h2>
+
+  <h3>How Do You Sprint in Bullet Force?</h3>
+  <p>
+    Hold <code>Shift</code> while pressing <code>W</code> to sprint in Bullet Force. Sprinting moves you significantly faster than walking but prevents you from firing your weapon. You must stop sprinting (release Shift) before you can shoot. Sprint is useful for crossing open areas quickly and repositioning between cover.
+  </p>
+
+  <h3>How Do You Run Fast in Bullet Force?</h3>
+  <p>
+    Sprint (<code>Shift + W</code>) is the maximum movement speed in base Bullet Force. The <strong>Lightweight</strong> perk increases your base movement speed, making you run faster without sprinting — ideal for aggressive flankers.
+  </p>
+
+  <h3>How Do You Crouch in Bullet Force?</h3>
+  <p>
+    Press <code>Left Ctrl</code> to crouch in Bullet Force on PC. Crouching reduces your character's hitbox, stabilizes your aim (less recoil while crouched), and makes you harder to spot behind low cover. Movement while crouching is slower. You can toggle crouch or hold it in Settings.
+  </p>
+
+  <h3>How Do I Kneel in Bullet Force?</h3>
+  <p>
+    Crouching (<code>Ctrl</code>) is the closest equivalent to kneeling in Bullet Force. There is no separate prone or kneel animation — crouch is the lowest stance available.
+  </p>
+
+  <h3>How Do I Double Jump in Bullet Force?</h3>
+  <p>
+    Standard Bullet Force does not include a double jump. The <code>Space</code> key performs a single jump. Some custom game modes or server settings may enable modified movement, but the base game is single-jump only.
+  </p>
+
+  <!-- Aiming -->
+  <h2 id="aiming-shooting">Aiming & Shooting Controls</h2>
+
+  <h3>How Do I Aim in Bullet Force?</h3>
+  <p>
+    Hold <strong>Right Mouse Button (RMB)</strong> to aim down sights (ADS) in Bullet Force on PC. ADS zooms into your weapon's sight picture, significantly improving accuracy at medium and long range. Release RMB to return to hip fire.
+  </p>
+
+  <h3>How Do I Aim in Bullet Force on a Laptop or Chromebook?</h3>
+  <p>
+    On a laptop or Chromebook, right-clicking works the same — use the two-finger tap or the dedicated right-click button on your trackpad to ADS. For competitive play, a mouse is strongly recommended since trackpad aiming is significantly slower and less accurate.
+  </p>
+
+  <h3>How Do I Aim in Bullet Force Without a Mouse?</h3>
+  <p>
+    Without a mouse, use your laptop's trackpad: two-finger tap = right click = ADS. You can also connect a USB or Bluetooth mouse to any laptop/Chromebook for a much better experience. Controllers are also supported — see the <a href="/guides/controller-support">Controller Support Guide</a>.
+  </p>
+
+  <h3>What Is Hip Fire in Bullet Force?</h3>
+  <p>
+    Hip fire in Bullet Force means shooting with <strong>Left Mouse Button without holding Right Mouse Button</strong>. You fire from the hip — no aiming animation, faster movement, but significantly less accurate beyond close range. SMGs perform best when hip-fired in close quarters. ARs and snipers always benefit from ADS.
+  </p>
+
+  <h3>How Do I Aim Down Sights in Bullet Force?</h3>
+  <p>
+    Hold <code>Right Click</code> to aim down sights (ADS). For weapons with scopes (snipers, scoped ARs), right-clicking activates the magnified scope view. The higher the scope magnification, the more zoomed-in your view and the more accurate your shots at distance.
+  </p>
+
+  <h3>How Do I Scope in Bullet Force on PC?</h3>
+  <p>
+    Equip a sniper rifle (like the M40A5 or MK11) in your loadout, then <strong>Right Click</strong> to scope in during a match. With a 4× or 8× scope attachment, right-clicking zooms into the scope view. Left-click to fire while scoped.
+  </p>
+
+  <!-- Weapons -->
+  <h2 id="weapons">Weapons & Knife Controls</h2>
+
+  <h3>How Do I Knife in Bullet Force?</h3>
+  <p>
+    Press <code>F</code> to melee with your knife in Bullet Force on PC. The knife performs a close-range melee swing that deals significant damage. One hit is often lethal to an enemy directly in front of you. The knife has a short range and a swing delay — it's an ambush weapon, not a dueling tool.
+  </p>
+
+  <h3>How Do I Pick Up a Gun in Bullet Force?</h3>
+  <p>
+    Walk over a dropped weapon on the ground and press <code>E</code> to pick it up. Dropped weapons appear when an enemy is eliminated near you. Picking up a powerful weapon (like a sniper you don't own) can give you access to guns outside your unlocked loadout — useful early in the game.
+  </p>
+
+  <h3>How Do I Switch Guns in Bullet Force?</h3>
+  <p>
+    Press <code>1</code> to switch to your primary weapon and <code>2</code> for your secondary (pistol). Press <code>Q</code> to instantly quick-swap between your two most recently used weapons — faster than pressing a number key.
+  </p>
+
+  <!-- Grenades -->
+  <h2 id="grenades">Grenades</h2>
+
+  <h3>How Do I Throw Grenades in Bullet Force?</h3>
+  <p>
+    Press <code>G</code> to throw your equipped grenade in Bullet Force. You must have a grenade selected in your loadout before the match begins. The throw distance and arc is fixed — position yourself close enough to the target area first. Grenades can be cooked (hold G longer) in some game modes to time the explosion.
+  </p>
+
+  <h3>How Do I Throw Grenades in Bullet Force on CrazyGames?</h3>
+  <p>
+    The grenade key on CrazyGames is the same as all browser versions: <code>G</code>. If G doesn't work, check Settings → Controls to confirm the keybind wasn't reset. Make sure you're clicked inside the game window first — otherwise key presses go to the browser.
+  </p>
+
+  <!-- Settings -->
+  <h2 id="settings">Sensitivity & Settings</h2>
+
+  <h3>How Do I Change Sensitivity in Bullet Force?</h3>
+  <p>
+    Press <code>Escape</code> during a match to open Settings, or access Settings from the main lobby gear icon. Go to <strong>Settings → Controls → Mouse Sensitivity</strong>. Drag the slider left to reduce sensitivity (more accurate aiming, less reactive) or right to increase it (faster turns, harder to control).
+  </p>
+  <p>
+    Recommended starting sensitivity: <strong>30–45%</strong> of the slider. Most players find high sensitivity too difficult to control in a recoil-heavy FPS like Bullet Force.
+  </p>
+
+  <h3>How Do I Change Keybinds in Bullet Force?</h3>
+  <p>
+    Go to <strong>Settings → Controls → Keybindings</strong>. Click on any action and press the new key you want to assign. Changes take effect immediately. Useful rebinds: some players move Crouch from Ctrl to C for faster access, or change Grenade from G to a mouse button.
+  </p>
+
+  <!-- Fullscreen -->
+  <h2 id="fullscreen">Fullscreen</h2>
+
+  <h3>How Do I Go Fullscreen in Bullet Force?</h3>
+  <p>
+    Press <code>F</code> in the Bullet Force main lobby or during a match to toggle fullscreen mode. Alternatively, use <code>F11</code> in Chrome/Firefox to put the browser in fullscreen, and the game will fill the window.
+  </p>
+
+  <h3>How Do I Go Fullscreen in Bullet Force While on Poki?</h3>
+  <p>
+    On Poki, click the <strong>fullscreen icon</strong> (four arrows pointing outward) in the bottom-right corner of the game frame. This expands the game to fill your entire browser window. Pressing F11 in Chrome also works alongside Poki's built-in fullscreen.
+  </p>
+
+  <!-- Controller -->
+  <h2 id="controller">Controller Support</h2>
+
+  <h3>Can You Play Bullet Force with a Controller?</h3>
+  <p>
+    Yes. Bullet Force supports gamepads including Xbox controllers (Xbox One, Xbox Series X/S) and PlayStation controllers (PS4, PS5) on PC. The game detects your controller automatically when plugged in via USB or connected via Bluetooth. For full setup instructions, see the <a href="/guides/controller-support">Controller Support Guide</a>.
+  </p>
+
+  <!-- Related guides -->
+  <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid #2a2a38;">
+    <p style="font-size:0.875rem; color:#9ca3af; margin-bottom:0.75rem;">Related guides:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+      <a href="/guides/controller-support" style="font-size:0.8125rem; color:#f97316; border:1px solid #2a2a38; border-radius:0.5rem; padding:0.375rem 0.75rem;">Controller Support Setup</a>
+      <a href="/guides/how-to-play" style="font-size:0.8125rem; color:#f97316; border:1px solid #2a2a38; border-radius:0.5rem; padding:0.375rem 0.75rem;">Beginner's Guide</a>
+      <a href="/guides/scorestreaks" style="font-size:0.8125rem; color:#f97316; border:1px solid #2a2a38; border-radius:0.5rem; padding:0.375rem 0.75rem;">Scorestreaks Guide</a>
+    </div>
+  </div>
+</GuideLayout>

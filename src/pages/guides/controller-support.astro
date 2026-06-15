@@ -1,0 +1,90 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+const toc = [
+  { id: 'answer',    label: 'Does BF Support Controllers?' },
+  { id: 'setup',     label: 'Controller Setup Steps' },
+  { id: 'xbox',      label: 'Xbox Controller' },
+  { id: 'ps4-ps5',   label: 'PS4 / PS5 Controller' },
+  { id: 'tips',      label: 'Controller Tips' },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use a Controller in Bullet Force on PC",
+  "step": [
+    { "@type": "HowToStep", "name": "Connect your controller", "text": "Plug your Xbox or PS4 controller into your PC via USB, or pair it via Bluetooth in Windows Bluetooth settings." },
+    { "@type": "HowToStep", "name": "Open Bullet Force in browser", "text": "Launch Bullet Force on CrazyGames, Poki, or any browser platform." },
+    { "@type": "HowToStep", "name": "Controller is detected automatically", "text": "Bullet Force automatically detects XInput and DirectInput controllers. No driver installation is required for Xbox controllers." },
+    { "@type": "HowToStep", "name": "Adjust sensitivity in Settings", "text": "Go to Settings and adjust Controller Sensitivity to your preference. Start at 40–50% and adjust from there." },
+  ],
+};
+---
+
+<GuideLayout
+  title="Bullet Force Controller Support – Xbox, PS4 & Gamepad Setup"
+  description="Does Bullet Force support controllers? Yes. Here's how to connect an Xbox, PS4, or any gamepad and play Bullet Force on PC."
+  schema={schema}
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'Controller Support' }]}
+  toc={toc}
+>
+  <h1>Bullet Force Controller Support – Full Setup Guide</h1>
+
+  <p>
+    Yes — <strong>Bullet Force supports controllers</strong>. The game works with Xbox controllers, PS4 controllers, PS5 DualSense controllers, and any standard gamepad on PC.
+    Here's everything you need to know to set it up and play.
+  </p>
+
+  <h2 id="answer">Does Bullet Force Have Controller Support?</h2>
+  <p>
+    <strong>Yes, Bullet Force has controller support</strong> on PC browser versions and the mobile apps. The PC browser version (CrazyGames, Poki) automatically detects XInput controllers (Xbox) and most DirectInput controllers (PlayStation, generic gamepads) when connected to your PC. No external software is required for Xbox controllers.
+  </p>
+
+  <h2 id="setup">How to Set Up a Controller for Bullet Force on PC</h2>
+  <ol>
+    <li><strong>Connect your controller</strong> to your PC via USB cable or Bluetooth pairing in Windows Settings → Bluetooth & Devices.</li>
+    <li><strong>Verify Windows recognizes it</strong> — check Control Panel → Devices and Printers → your controller should appear. Test buttons with the controller's built-in test tool.</li>
+    <li><strong>Open Bullet Force</strong> in Chrome or Firefox on CrazyGames, Poki, or any browser platform.</li>
+    <li><strong>No manual configuration needed</strong> — Bullet Force detects the controller automatically on game launch. You'll see controller button prompts replace keyboard/mouse hints.</li>
+    <li><strong>Adjust settings</strong> — go to Settings → Controls and fine-tune Controller Sensitivity and button assignments if available.</li>
+  </ol>
+
+  <h2 id="xbox">Xbox Controller in Bullet Force</h2>
+  <p>
+    Xbox controllers (Xbox One, Xbox Series X/S) are the easiest to set up with Bullet Force on PC. They use XInput which Windows supports natively — no driver installation required.
+  </p>
+  <p>
+    Connect via USB or Bluetooth (Xbox Series controllers connect via Bluetooth; Xbox One requires the Xbox Wireless Adapter or USB). The controller is detected immediately when Bullet Force is running.
+  </p>
+  <p>
+    <strong>Can Bullet Force on PC use an Xbox One controller?</strong> Yes. Plug in via USB or connect wirelessly — the game detects it automatically.
+  </p>
+
+  <h2 id="ps4-ps5">PS4 / PS5 Controller in Bullet Force</h2>
+  <p>
+    PlayStation controllers work with Bullet Force but may require an extra step on PC:
+  </p>
+  <ul>
+    <li><strong>PS4 DualShock 4</strong> — connect via USB directly; Windows recognizes it as a generic gamepad. Works in Bullet Force without additional software. For button label overlays, install DS4Windows (optional).</li>
+    <li><strong>PS5 DualSense</strong> — connect via USB; Windows recognizes it. Haptic feedback and adaptive triggers will not function in browser games, but all buttons and sticks work normally.</li>
+    <li><strong>Bluetooth pairing</strong> — hold the Share + PS button until the light bar flashes to enter pairing mode, then pair in Windows Bluetooth settings.</li>
+  </ul>
+
+  <h2 id="tips">Controller Tips for Bullet Force</h2>
+  <ul>
+    <li><strong>Sensitivity:</strong> Controller aim requires different sensitivity than mouse. Start at 40–50% and adjust. Most players prefer 35–45% for Bullet Force's gun recoil.</li>
+    <li><strong>SMGs are easier on controller</strong> — the P90 and Vector's high fire rate compensates for slightly less accurate controller aim compared to mouse.</li>
+    <li><strong>Mouse vs. Controller:</strong> A mouse will always be more precise in Bullet Force's PC browser version. Controllers are competitive but at a slight disadvantage in ranged duels against mouse players.</li>
+    <li><strong>Mobile controller:</strong> On mobile (Android/iOS), Bluetooth controllers are supported. The same Xbox/PS5 controller works wirelessly with the Bullet Force mobile app.</li>
+  </ul>
+
+  <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid #2a2a38;">
+    <p style="font-size:0.875rem; color:#9ca3af; margin-bottom:0.75rem;">Related guides:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+      <a href="/guides/controls" style="font-size:0.8125rem; color:#f97316; border:1px solid #2a2a38; border-radius:0.5rem; padding:0.375rem 0.75rem;">Full Keyboard Controls Guide</a>
+      <a href="/guides/how-to-play" style="font-size:0.8125rem; color:#f97316; border:1px solid #2a2a38; border-radius:0.5rem; padding:0.375rem 0.75rem;">How to Play – Beginner Guide</a>
+      <a href="/mobile" style="font-size:0.8125rem; color:#f97316; border:1px solid #2a2a38; border-radius:0.5rem; padding:0.375rem 0.75rem;">Mobile Controls Guide</a>
+    </div>
+  </div>
+</GuideLayout>

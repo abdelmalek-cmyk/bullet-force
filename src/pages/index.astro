@@ -1,0 +1,273 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GameEmbed from '../components/GameEmbed.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import WeaponCard from '../components/WeaponCard.astro';
+import { weapons } from '../data/weapons';
+
+const topWeapons = weapons.filter(w => w.tier === 'S').slice(0, 3);
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Bullet Force",
+    "description": "Free multiplayer first-person shooter game by Blayze Games, playable in any browser without downloading.",
+    "genre": "First-Person Shooter",
+    "playMode": "MultiPlayer",
+    "gamePlatform": ["Browser", "Android", "iOS"],
+    "applicationCategory": "Game",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "developer": { "@type": "Organization", "name": "Blayze Games" },
+    "url": "https://bulletforce.io",
+    "image": "https://bulletforce.io/og-image.png",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Bullet Force down?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Bullet Force servers are generally online 24/7. If the game is not loading, the issue is usually a local browser or WebGL problem. Clear your cache, disable extensions, and try Chrome or Firefox." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which gun is the best in Bullet Force?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The M4A1 assault rifle is the best all-round gun in Bullet Force due to its balanced damage, fire rate, and low recoil. For close range the P90 SMG dominates; for sniping, the M40A5 is the top choice." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Bullet Force still working?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, Bullet Force is still working in 2025. The game runs on Unity WebGL and is playable on CrazyGames, Poki, Miniplay, PacoGames, and as a native Android and iOS app." }
+      },
+    ],
+  },
+];
+
+const faq = [
+  {
+    question: "Is Bullet Force down?",
+    answer: "Bullet Force is not down — the game runs 24/7 through browser platforms like CrazyGames and Poki. If it's not loading for you, the problem is almost always a local browser issue. Clear your cache, disable browser extensions, and switch to Chrome or Firefox. See our <a href='/faq#troubleshooting'>full troubleshooting guide</a>.",
+  },
+  {
+    question: "Which gun is the best in Bullet Force?",
+    answer: "The <strong>M4A1</strong> is the best all-round gun in Bullet Force — balanced damage, easy recoil control, and effective at all ranges. For close-quarters, the <strong>P90</strong> wins with its 90 fire rate and 50-round magazine. For sniping, the <strong>M40A5</strong> is top tier. See the full <a href='/weapons'>Weapons Tier List</a>.",
+  },
+  {
+    question: "Is Bullet Force still working in 2025?",
+    answer: "Yes. Bullet Force is fully active in 2025. Blayze Games continues to support the game. You can play on CrazyGames, Poki, Miniplay, PacoGames, or download it from Google Play and the App Store.",
+  },
+  {
+    question: "Does Bullet Force have VR mode?",
+    answer: "No, Bullet Force does not support VR. It's a standard browser-based WebGL FPS for PC, Chromebook, Android, and iOS. No VR headset support exists at this time.",
+  },
+  {
+    question: "Can I get banned on Bullet Force for glitching?",
+    answer: "Yes. Using exploits — especially map out-of-bounds glitches in ranked matches — can result in an account suspension from Blayze Games. Play within the rules to keep your account safe.",
+  },
+  {
+    question: "How do I get to settings in Bullet Force on PC?",
+    answer: "Press <strong>Escape</strong> during a match to open the pause menu with Settings. From the main lobby, click the gear icon in the top-right corner. Settings include graphics quality, sound, sensitivity, and keybinds.",
+  },
+];
+
+const features = [
+  { href: '/weapons',             icon: '🔫', title: 'Weapons & Best Guns',   desc: 'Tier list, stats, and which guns to unlock first.' },
+  { href: '/maps',                icon: '🗺️', title: 'All Maps',              desc: 'Layouts, callouts, and strategies for every map.' },
+  { href: '/guides/controls',     icon: '⌨️', title: 'Controls Guide',        desc: 'All keybinds, sensitivity settings, and fullscreen.' },
+  { href: '/guides/scorestreaks', icon: '🚁', title: 'Scorestreaks Guide',     desc: 'How to use UAV, airstrike, and helicopter on PC.' },
+  { href: '/guides/gold-credits', icon: '💰', title: 'Gold & Credits Guide',  desc: 'Earn in-game currency fast — legitimate methods.' },
+  { href: '/unblocked',           icon: '🔓', title: 'Play Unblocked',        desc: 'Access Bullet Force at school or work — no VPN needed.' },
+];
+
+const platforms = [
+  { name: 'CrazyGames',   note: 'Most popular browser version' },
+  { name: 'Poki',         note: 'Clean interface, no-ads option' },
+  { name: 'Miniplay',     note: 'Alternative browser host' },
+  { name: 'PacoGames',    note: 'Saves progress with account' },
+  { name: 'Google Play',  note: 'Official Android app' },
+  { name: 'App Store',    note: 'Official iOS app' },
+];
+---
+
+<BaseLayout
+  title="Bullet Force – Free Multiplayer FPS Game Online"
+  description="Play Bullet Force, the free multiplayer first-person shooter game by Blayze Games. No download needed – play in your browser now on PC or Chromebook."
+  schema={schema}
+>
+  <!-- ===== HERO ===== -->
+  <section class="relative bg-gradient-to-b from-bf-darker to-bf-dark border-b border-bf-border overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
+      style="background:radial-gradient(ellipse at 15% 60%,rgba(249,115,22,.07) 0%,transparent 55%),radial-gradient(ellipse at 85% 10%,rgba(249,115,22,.05) 0%,transparent 50%)">
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 bg-bf-orange/10 border border-bf-orange/20 rounded-full px-3 py-1 text-xs text-bf-orange font-semibold mb-6">
+          <span class="w-1.5 h-1.5 bg-bf-orange rounded-full animate-pulse" aria-hidden="true"></span>
+          Servers Online — Play Free Now
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-5">
+          Bullet Force –<br />
+          <span class="text-bf-orange">Free Online Multiplayer FPS</span>
+        </h1>
+
+        <p class="text-lg text-gray-300 leading-relaxed mb-8 max-w-2xl">
+          <strong class="text-white">Bullet Force</strong> is a free multiplayer first-person shooter by
+          <strong class="text-white">Blayze Games</strong>. Play directly in your browser on PC or Chromebook — no download required.
+          Battle players worldwide across 5 maps, unlock 30+ weapons, and climb the ranks.
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          <a href="/play" class="inline-flex items-center gap-2 bg-bf-orange hover:bg-bf-orange-dark text-white font-bold px-7 py-3.5 rounded-xl text-base transition-colors shadow-lg shadow-orange-900/30">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            Play Free Now
+          </a>
+          <a href="/unblocked" class="inline-flex items-center gap-2 bg-bf-surface hover:bg-bf-surface-2 border border-bf-border text-white font-semibold px-6 py-3.5 rounded-xl text-base transition-colors">
+            Play Unblocked
+          </a>
+          <a href="/download" class="inline-flex items-center gap-2 text-gray-300 hover:text-white font-medium px-4 py-3.5 text-base transition-colors">
+            Download App →
+          </a>
+        </div>
+
+        <!-- Game metadata strip -->
+        <div class="flex flex-wrap gap-8 mt-10 pt-8 border-t border-bf-border">
+          {[
+            { label: 'Developer', value: 'Blayze Games' },
+            { label: 'Genre',     value: 'Multiplayer FPS' },
+            { label: 'Platforms', value: 'Browser · Android · iOS' },
+            { label: 'Price',     value: 'Free to Play' },
+            { label: 'Released',  value: '2015 (Browser)' },
+          ].map(({ label, value }) => (
+            <div>
+              <div class="text-xs text-gray-500 uppercase tracking-widest">{label}</div>
+              <div class="text-sm font-semibold text-white mt-0.5">{value}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GAME EMBED ===== -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-2xl font-bold text-white mb-5">Play Bullet Force Online – Free Browser FPS</h2>
+    <GameEmbed />
+  </section>
+
+  <!-- ===== WHAT IS BULLET FORCE ===== -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-bf-border">
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <h2 class="text-3xl font-bold text-white mb-5">What Is Bullet Force?</h2>
+        <div class="space-y-4 text-gray-300 leading-relaxed">
+          <p>
+            <strong class="text-white">Bullet Force</strong> is a free-to-play browser multiplayer FPS created by
+            <strong class="text-white">Blayze Games</strong> (Lucas Wilde). First released in 2015 as a Unity WebGL
+            browser game, it has grown into one of the most-played free online FPS games on platforms like CrazyGames and Poki.
+          </p>
+          <p>
+            The game features 5 multiplayer maps (Dam, Elevator, Village, Outpost, City), 30+ unlockable weapons across
+            assault rifles, SMGs, snipers, and more. The loadout system includes customizable perks, weapon attachments
+            (suppressor, muzzle brake, laser sight, scopes), and scorestreaks — UAV, airstrike, and helicopter.
+          </p>
+          <p>
+            Bullet Force runs in any modern browser — no download, no plugin, no VPN. It's also available as a native
+            app on Android (Google Play) and iOS (App Store). Whether you're on PC, Chromebook, or mobile, you can jump into a match in under 30 seconds.
+          </p>
+        </div>
+        <a href="/about" class="inline-flex items-center gap-1 text-bf-orange hover:underline text-sm mt-4">
+          Full game history & developer info →
+        </a>
+      </div>
+
+      <!-- Key facts card -->
+      <div class="bg-bf-surface border border-bf-border rounded-2xl p-6">
+        <h3 class="text-base font-semibold text-white mb-4">Bullet Force – Key Facts</h3>
+        <dl class="space-y-3">
+          {[
+            { term: 'Developer',   def: 'Blayze Games / Lucas Wilde' },
+            { term: 'Engine',      def: 'Unity WebGL' },
+            { term: 'Browser',     def: 'CrazyGames, Poki, Miniplay, PacoGames' },
+            { term: 'Maps',        def: 'Dam · Elevator · Village · Outpost · City' },
+            { term: 'Game Modes',  def: 'TDM · Conquest · Gun Game · Free For All' },
+            { term: 'Scorestreaks',def: 'UAV · Airstrike · Helicopter' },
+            { term: 'Platforms',   def: 'Browser (PC / Chromebook) · Android · iOS' },
+            { term: 'Cost',        def: 'Free — weapons & skins via Credits / Gold' },
+          ].map(({ term, def }) => (
+            <div class="flex gap-4 text-sm">
+              <dt class="font-semibold text-gray-400 w-28 flex-shrink-0 pt-px">{term}</dt>
+              <dd class="text-gray-200">{def}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURE GRID ===== -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-bf-border">
+    <h2 class="text-2xl font-bold text-white mb-8">Everything You Need for Bullet Force</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {features.map(({ href, icon, title, desc }) => (
+        <a href={href} class="group flex gap-4 items-start bg-bf-surface hover:bg-bf-surface-2 border border-bf-border hover:border-bf-orange rounded-xl p-5 transition-all duration-200">
+          <span class="text-2xl flex-shrink-0" aria-hidden="true">{icon}</span>
+          <div>
+            <h3 class="font-semibold text-white group-hover:text-bf-orange transition-colors mb-1 text-sm">{title}</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">{desc}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===== TOP WEAPONS PREVIEW ===== -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-bf-border">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold text-white">Best Guns in Bullet Force</h2>
+      <a href="/weapons" class="text-sm text-bf-orange hover:underline">Full tier list →</a>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {topWeapons.map(w => (
+        <WeaponCard
+          name={w.name}
+          slug={w.slug}
+          category={w.category}
+          damage={w.damage}
+          fireRate={w.fireRate}
+          range={w.range}
+          tier={w.tier}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- ===== PLAY ON PLATFORMS ===== -->
+  <section class="bg-bf-surface border-t border-b border-bf-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <h2 class="text-xl font-bold text-white mb-6 text-center">Play Bullet Force Multiplayer On</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        {platforms.map(({ name, note }) => (
+          <div class="bg-bf-darker border border-bf-border rounded-xl px-5 py-3.5 text-center min-w-[140px]">
+            <div class="font-semibold text-white text-sm">{name}</div>
+            <div class="text-xs text-gray-500 mt-0.5">{note}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ / AEO ===== -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <h2 class="text-2xl font-bold text-white mb-8">Bullet Force – Common Questions</h2>
+    <FAQAccordion items={faq} schema={false} />
+    <p class="text-sm text-gray-500 mt-6">
+      More questions? See the <a href="/faq" class="text-bf-orange hover:underline">full FAQ</a> or check
+      <a href="/faq#troubleshooting" class="text-bf-orange hover:underline">troubleshooting</a>.
+    </p>
+  </section>
+</BaseLayout>

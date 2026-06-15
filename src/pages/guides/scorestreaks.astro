@@ -1,0 +1,208 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+const toc = [
+  { id: 'what-are',     label: 'What Are Killstreaks?' },
+  { id: 'list',         label: 'All Killstreaks' },
+  { id: 'activate-pc',  label: 'Activate on PC' },
+  { id: 'activate-mob', label: 'Activate on Mobile' },
+  { id: 'uav',          label: 'UAV Deep Dive' },
+  { id: 'tips',         label: 'Strategy Tips' },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Use Killstreaks in Bullet Force on PC",
+    "step": [
+      { "@type": "HowToStep", "name": "Equip a killstreak in your loadout", "text": "Before the match, open your loadout and select up to 3 killstreaks in the killstreak slots. Choose lower-threshold streaks (UAV, Counter-UAV) if you are newer to the game." },
+      { "@type": "HowToStep", "name": "Earn kills to charge your killstreak", "text": "Each kill adds to your killstreak counter. UAV requires 4 kills, Counter-UAV 5, Advanced UAV 8, Haste 9, Super Soldier 13, Nuke 25. Dying resets your counter." },
+      { "@type": "HowToStep", "name": "Press Left Arrow to activate your first killstreak", "text": "When the killstreak icon lights up, press Left Arrow on PC to deploy slot 1. Up Arrow activates slot 2, Right Arrow activates slot 3." },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I use the UAV in Bullet Force?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Earn 4 kills without dying to charge the UAV, then press Left Arrow on PC to deploy it. The UAV reveals all enemy positions on the minimap for your entire team for 30 seconds. Enemies with the Undetectable perk will not appear." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does UAV mean in Bullet Force?",
+        "acceptedAnswer": { "@type": "Answer", "text": "UAV stands for Unmanned Aerial Vehicle. In Bullet Force, the UAV is a killstreak that scans the map from above and reveals all enemy player locations on your team's minimap for 30 seconds in real time." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I activate killstreaks in Bullet Force on PC?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Press the Left Arrow key to activate killstreak slot 1, Up Arrow for slot 2, and Right Arrow for slot 3 on PC. The icon must be lit up (fully charged from kills) before the key works." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Nuke killstreak in Bullet Force?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The Nuke is the highest killstreak in Bullet Force, requiring 25 kills in a row without dying. When activated, it drops a nuclear bomb that kills every player in the match — including you and your teammates — and awards 4,000 points." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many kills for UAV in Bullet Force?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The UAV requires 4 kills in a row without dying in Bullet Force. It then reveals all enemy locations on your team's minimap for 30 seconds." }
+      },
+    ],
+  },
+];
+---
+
+<GuideLayout
+  title="Bullet Force Killstreaks Guide – UAV, Nuke & All Streaks Explained"
+  description="Complete Bullet Force killstreaks guide: all 6 streaks, exact kill requirements, PC activation keys (Arrow Keys), mobile controls, and UAV strategy tips."
+  schema={schema}
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'Killstreaks' }]}
+  toc={toc}
+>
+  <h1>Bullet Force Killstreaks – Complete Guide (All 6 Streaks)</h1>
+
+  <p>
+    Killstreaks are rewards earned by getting consecutive kills without dying in Bullet Force. There are <strong>6 killstreaks</strong> ranging from the UAV (4 kills) to the devastating Nuke (25 kills). This guide covers every streak, exact kill requirements, how to activate them on PC and mobile, and how to use each one effectively.
+  </p>
+
+  <h2 id="what-are">What Are Killstreaks in Bullet Force?</h2>
+  <p>
+    Killstreaks (also called scorestreaks) are powerful abilities that activate once you earn a set number of kills in a row without dying. Each time you die, your kill counter resets. You must equip killstreaks in your <strong>loadout before a match starts</strong> — you cannot change them mid-game.
+  </p>
+  <p>
+    You can equip up to <strong>3 killstreaks per loadout</strong>, filling slots 1, 2, and 3. In the PC browser version, each slot maps to a separate Arrow Key for activation.
+  </p>
+
+  <h2 id="list">All Bullet Force Killstreaks – Kill Requirements & Effects</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Killstreak</th>
+        <th>Kills Required</th>
+        <th>Duration</th>
+        <th>Points</th>
+        <th>Effect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>UAV</strong></td>
+        <td>4 kills</td>
+        <td>30 seconds</td>
+        <td>—</td>
+        <td>Reveals all enemy positions on minimap. Countered by the Undetectable perk.</td>
+      </tr>
+      <tr>
+        <td><strong>Counter-UAV</strong></td>
+        <td>5 kills</td>
+        <td>30 seconds</td>
+        <td>—</td>
+        <td>Disables the enemy team's minimap — they cannot see any players for 30 seconds.</td>
+      </tr>
+      <tr>
+        <td><strong>Advanced UAV</strong></td>
+        <td>8 kills</td>
+        <td>30 seconds</td>
+        <td>600 points</td>
+        <td>Shows all enemies on minimap as directional triangles, revealing both position and facing direction. Countered by Undetectable.</td>
+      </tr>
+      <tr>
+        <td><strong>Haste</strong></td>
+        <td>9 kills</td>
+        <td>25 seconds</td>
+        <td>500 points</td>
+        <td>Increases your sprint speed, aim speed, reload speed, and jump height for 25 seconds.</td>
+      </tr>
+      <tr>
+        <td><strong>Super Soldier</strong></td>
+        <td>13 kills</td>
+        <td>30 seconds</td>
+        <td>650 points</td>
+        <td>Your bullets glow blue and deal significantly increased damage to enemies for 30 seconds.</td>
+      </tr>
+      <tr>
+        <td><strong>Nuke</strong></td>
+        <td>25 kills</td>
+        <td>Instant</td>
+        <td>4,000 points</td>
+        <td>Drops a nuclear bomb that kills every player in the match — including you and your teammates.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <blockquote>
+    <strong>Recommended beginner loadout:</strong> UAV (slot 1) + Counter-UAV (slot 2). Both are achievable in most matches and provide team-wide impact without requiring exceptional skill.
+  </blockquote>
+
+  <h2 id="activate-pc">How to Activate Killstreaks in Bullet Force on PC</h2>
+  <ol>
+    <li><strong>Equip killstreaks</strong> in your loadout before the match starts (Lobby → Edit Loadout → Killstreak slots).</li>
+    <li><strong>Earn kills without dying</strong> — each kill charges your killstreak counter. Dying resets it to zero.</li>
+    <li><strong>Watch for the ready indicator</strong> — when a killstreak is charged, its icon in the HUD lights up.</li>
+    <li><strong>Press the activation key:</strong>
+      <ul>
+        <li><code>Left Arrow</code> — activate Killstreak Slot 1</li>
+        <li><code>Up Arrow</code> — activate Killstreak Slot 2</li>
+        <li><code>Right Arrow</code> — activate Killstreak Slot 3</li>
+      </ul>
+    </li>
+    <li><strong>UAV / Counter-UAV / Advanced UAV:</strong> activates instantly on key press.</li>
+    <li><strong>Haste / Super Soldier:</strong> activates instantly and applies a buff to your character.</li>
+    <li><strong>Nuke:</strong> activates a short countdown then kills everyone in the match.</li>
+  </ol>
+
+  <h2 id="activate-mob">How to Activate Killstreaks in Bullet Force on Mobile</h2>
+  <p>
+    On Android and iOS, killstreak activation buttons appear on the right side of the HUD when a streak is ready. Tap the lit-up icon to deploy it immediately.
+  </p>
+  <ul>
+    <li><strong>UAV / Counter-UAV / Advanced UAV:</strong> tap the icon — activates instantly.</li>
+    <li><strong>Haste / Super Soldier:</strong> tap the icon — buff applies to your character immediately.</li>
+    <li><strong>Nuke:</strong> tap to trigger — a brief countdown plays before the explosion.</li>
+  </ul>
+  <p>Mobile players have 6 loadout slots (vs 3 on PC), so you can pre-configure different killstreak setups per class and swap between them in the lobby.</p>
+
+  <h2 id="uav">UAV Deep Dive – What Does UAV Mean in Bullet Force?</h2>
+  <p>
+    <strong>UAV stands for Unmanned Aerial Vehicle.</strong> In Bullet Force, deploying the UAV sends a drone above the map that scans for enemy locations. For 30 seconds, all enemy players appear as red dots on your entire team's minimap.
+  </p>
+
+  <h3>How many kills for UAV in Bullet Force?</h3>
+  <p>The UAV requires <strong>4 consecutive kills without dying</strong>. It is the most accessible killstreak in the game and should be in every player's slot 1.</p>
+
+  <h3>What counters the UAV in Bullet Force?</h3>
+  <p>
+    The <strong>Undetectable perk</strong> makes a player invisible to UAV and Advanced UAV scans. Players with Undetectable will not show as red dots on the minimap even when an enemy UAV is active.
+  </p>
+  <p>
+    The <strong>Counter-UAV</strong> (5 kills) also directly counters enemy UAVs — it disables the opposing team's minimap entirely, neutralising any information from their active UAV.
+  </p>
+
+  <h3>What is the difference between UAV and Advanced UAV?</h3>
+  <p>
+    The regular UAV (4 kills) shows enemy locations as dots on the minimap. The <strong>Advanced UAV</strong> (8 kills) shows enemies as directional triangles — you see not only where they are, but also which way they are facing. This makes the Advanced UAV significantly more powerful for predicting flanks and pushes.
+  </p>
+
+  <h2 id="tips">Killstreak Strategy Tips</h2>
+  <ul>
+    <li><strong>Always run UAV in slot 1</strong> — even beginner players can chain 4 kills. The intel it provides to your whole team is the highest value action at low kill counts.</li>
+    <li><strong>Don't hold killstreaks</strong> — activate as soon as they are ready. Waiting for a "perfect moment" usually means dying first and losing the entire streak.</li>
+    <li><strong>UAV + Counter-UAV combo</strong> — equip both. Use UAV to see enemies, and Counter-UAV to blind them. Your team fights with information, theirs fights blind.</li>
+    <li><strong>Haste for aggressive rushes</strong> — the reload speed and sprint buff from Haste is best used immediately when pushing a flag or entering a building. Don't save it for defence.</li>
+    <li><strong>Super Soldier on SMG builds</strong> — the damage buff pairs exceptionally well with high-RPM SMGs. At 13 kills you are already dominating — Super Soldier guarantees you continue to do so.</li>
+    <li><strong>Nuke only in TDM</strong> — the Nuke's 4,000 points swing is most impactful in Team Deathmatch where scores are tight. In Conquest, objectives matter more than mass kills.</li>
+    <li><strong>Equip Undetectable against UAV-heavy lobbies</strong> — if enemies consistently run UAV, Undetectable removes all the information they gain from it, protecting your flanking routes.</li>
+  </ul>
+
+  <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid #2a2a38;">
+    <p style="font-size:0.875rem; color:#9ca3af; margin-bottom:0.75rem;">Related guides:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+      <a href="/guides/how-to-play" style="font-size:0.8125rem; color:#f97316; border:1px solid #2a2a38; border-radius:0.5rem; padding:0.375rem 0.75rem;">Beginner's Guide</a>
+      <a href="/guides/controls" style="font-size:0.8125rem; color:#f97316; border:1px solid #2a2a38; border-radius:0.5rem; padding:0.375rem 0.75rem;">Controls Guide</a>
+      <a href="/guides/gold-credits" style="font-size:0.8125rem; color:#f97316; border:1px solid #2a2a38; border-radius:0.5rem; padding:0.375rem 0.75rem;">Gold & Credits</a>
+    </div>
+  </div>
+</GuideLayout>

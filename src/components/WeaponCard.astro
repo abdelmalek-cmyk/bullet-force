@@ -1,0 +1,51 @@
+---
+interface Props {
+  name: string;
+  slug: string;
+  category: string;
+  damage: number;
+  fireRate: number;
+  range: string;
+  tier: 'S' | 'A' | 'B' | 'C';
+}
+const { name, slug, category, damage, fireRate, range, tier } = Astro.props;
+
+const tierStyle = {
+  S: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
+  A: 'bg-green-500/20 text-green-400 border-green-500/30',
+  B: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
+  C: 'bg-gray-500/20 text-gray-400 border-gray-500/30',
+} as const;
+---
+
+<a
+  href={`/weapons/${slug}`}
+  class="group block bg-bf-surface border border-bf-border rounded-xl p-5 hover:border-bf-orange transition-all duration-200 hover:shadow-lg hover:shadow-orange-900/10"
+>
+  <div class="flex items-start justify-between mb-4">
+    <div>
+      <h3 class="font-bold text-white group-hover:text-bf-orange transition-colors">{name}</h3>
+      <span class="text-xs text-gray-400 mt-0.5">{category}</span>
+    </div>
+    <span class={`text-xs font-bold px-2 py-1 rounded border ${tierStyle[tier]}`}>{tier}-Tier</span>
+  </div>
+
+  <div class="space-y-2">
+    <div>
+      <div class="flex justify-between text-xs text-gray-400 mb-1">
+        <span>Damage</span><span class="text-gray-200">{damage}</span>
+      </div>
+      <div class="stat-bar"><div class="stat-bar-fill" style={`width:${damage}%`}></div></div>
+    </div>
+    <div>
+      <div class="flex justify-between text-xs text-gray-400 mb-1">
+        <span>Fire Rate</span><span class="text-gray-200">{fireRate}</span>
+      </div>
+      <div class="stat-bar"><div class="stat-bar-fill" style={`width:${fireRate}%`}></div></div>
+    </div>
+    <div class="flex justify-between text-xs mt-3">
+      <span class="text-gray-400">Range</span>
+      <span class="text-gray-200">{range}</span>
+    </div>
+  </div>
+</a>

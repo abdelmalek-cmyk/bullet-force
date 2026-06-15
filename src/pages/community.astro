@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const faq = [
+  {
+    question: "How can I play with my friend in Bullet Force?",
+    answer: "To play with a friend in Bullet Force: (1) One player creates a custom room in the lobby — click 'Create Room' and set a room name and password. (2) Share the room name and password with your friend. (3) Your friend joins via 'Join Room', enters the room name and password. You're now in the same match. Both players need to be on the same server region for the best performance.",
+  },
+  {
+    question: "How do I chat in Bullet Force on PC?",
+    answer: "Press <strong>Enter</strong> to open the chat input in Bullet Force on PC. Type your message and press Enter again to send it. There is a team chat and an all-player chat mode — check the chat options in the chat UI. You can also chat between rounds in the lobby screen.",
+  },
+  {
+    question: "What is a clan tag in Bullet Force?",
+    answer: "A clan tag is a short prefix (up to 4 characters) shown before your username, like [TAG] PlayerName. Clan tags require Gold to equip and are available in the Profile settings. Gold clan tags use a special colored display and cost additional Gold. Clan tags are purely cosmetic and have no gameplay effect.",
+  },
+  {
+    question: "Is there chat in Bullet Force?",
+    answer: "Yes. Bullet Force has in-match text chat. Press Enter to open the chat box during a match. On CrazyGames, the same Enter key works. There is no voice chat — text only.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer.replace(/<[^>]+>/g, '') },
+  })),
+};
+---
+
+<BaseLayout
+  title="Bullet Force Community – Discord Server, Reddit & Forums"
+  description="Join the Bullet Force community. Find the official Discord server, Reddit, forums, clans, and how to play with friends."
+  schema={schema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl sm:text-5xl font-black text-white mb-4">
+      Bullet Force Community –<br />
+      <span class="text-bf-orange">Discord, Reddit & Social</span>
+    </h1>
+    <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl">
+      Join the <strong class="text-white">Bullet Force discord</strong> server, find players on Reddit, and connect with the community. Plus: how to play with friends, chat in-game, and set up clan tags.
+    </p>
+
+    <!-- Community platforms -->
+    <div class="grid sm:grid-cols-3 gap-5 mb-12">
+      {[
+        {
+          platform: 'Bullet Force Discord',
+          icon: '💬',
+          color: 'border-indigo-500/30 bg-indigo-500/5',
+          desc: 'The official Bullet Force Discord server is the most active community. Get game updates, find teammates, report bugs, and connect with Blayze Games directly.',
+          action: 'Search "Bullet Force Official" on Discord',
+        },
+        {
+          platform: 'Reddit – r/BulletForce',
+          icon: '🔴',
+          color: 'border-orange-500/30 bg-orange-500/5',
+          desc: 'The Bullet Force subreddit hosts gameplay clips, tips, discussions, bug reports, and community tournaments. A great place for strategy discussions.',
+          action: 'Search r/BulletForce on Reddit',
+        },
+        {
+          platform: 'Forums & Fan Sites',
+          icon: '📋',
+          color: 'border-blue-500/30 bg-blue-500/5',
+          desc: 'Various community forums and fan sites host strategy guides, weapon discussions, and clan recruitment. Find them by searching "Bullet Force forum" online.',
+          action: 'Search "Bullet Force Forum" online',
+        },
+      ].map(({ platform, icon, color, desc, action }) => (
+        <div class={`bg-bf-surface border rounded-2xl p-5 ${color}`}>
+          <div class="text-2xl mb-3">{icon}</div>
+          <h2 class="font-bold text-white mb-2">{platform}</h2>
+          <p class="text-sm text-gray-300 mb-3 leading-relaxed">{desc}</p>
+          <div class="text-xs text-gray-500">{action}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Play with friends guide -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-5">How to Play Bullet Force with Friends</h2>
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div>
+          <p class="text-sm text-gray-300 mb-4">Bullet Force does not have a traditional friend-list system. Playing with friends uses the Custom Room feature:</p>
+          <ol class="space-y-4">
+            {[
+              { step: 1, title: 'Create a Room', desc: 'From the main lobby, click "Multiplayer" → "Custom Room" → "Create". Set a room name and an optional password.' },
+              { step: 2, title: 'Share Room Info', desc: 'Send your friend the exact room name and password (if you set one). They need to search for your room by name.' },
+              { step: 3, title: 'Friend Joins', desc: 'Your friend clicks "Custom Room" → "Join" → searches for your room name and enters the password to join.' },
+              { step: 4, title: 'Pick Teams', desc: 'Once both players are in the room, the host can adjust team assignments. Fill remaining spots with public players or set to bots.' },
+            ].map(({ step, title, desc }) => (
+              <div class="flex gap-4">
+                <div class="w-8 h-8 bg-bf-orange/10 border border-bf-orange/20 rounded-full flex items-center justify-center text-bf-orange font-bold text-sm flex-shrink-0">{step}</div>
+                <div>
+                  <div class="font-semibold text-white text-sm mb-0.5">{title}</div>
+                  <p class="text-xs text-gray-400 leading-relaxed">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </ol>
+        </div>
+        <div class="bg-bf-surface border border-bf-border rounded-xl p-5">
+          <h3 class="font-semibold text-white mb-3">Tips for Playing with Friends</h3>
+          <ul class="space-y-3">
+            {[
+              'Select the same server region before creating/joining the room for lowest ping',
+              'Text chat (Enter key) lets you coordinate tactics in-match',
+              'Use Discord voice chat while playing for real-time communication',
+              'Set a room password to keep the room private between your friend group',
+              'Add bots to fill empty slots if your group is smaller than 12 players',
+            ].map(tip => (
+              <li class="flex items-start gap-2 text-sm text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-bf-orange flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                {tip}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mb-10">
+      <h2 class="text-2xl font-bold text-white mb-6">Community FAQ</h2>
+      <FAQAccordion items={faq} schema={false} />
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+      <a href="/similar-games" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Games Like Bullet Force</a>
+      <a href="/about" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">About Bullet Force</a>
+      <a href="/faq" class="text-sm text-bf-orange hover:underline border border-bf-border rounded-lg px-3 py-1.5">Full FAQ</a>
+    </div>
+  </div>
+</BaseLayout>
