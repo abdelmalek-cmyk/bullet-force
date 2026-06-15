@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { weapons } from '../data/weapons';
 import { maps } from '../data/maps';
 
-const SITE = 'https://bulletforce.io';
+const SITE = 'https://bullet-force.org';
 
 const staticPages = [
   { url: '/',               priority: '1.0', changefreq: 'weekly'  },
